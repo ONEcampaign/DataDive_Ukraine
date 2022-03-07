@@ -5,6 +5,7 @@ from scripts.codes import (
     cereals_dict,
     fuels_dict,
     vegetable_oils_dict,
+    steel_dict,
     codes_dict_bec,
     bec_names,
 )
@@ -17,7 +18,7 @@ def simplify_codes(df: pd.DataFrame) -> pd.DataFrame:
     cc: pd.array = df.commodity_code.unique()
 
     # Create a combined dictionary of all the detailed codes for study
-    cat: dict = cereals_dict(cc) | fuels_dict(cc) | vegetable_oils_dict(cc)
+    cat = cereals_dict(cc) | fuels_dict(cc) | vegetable_oils_dict(cc) | steel_dict()
 
     # Create an empty dictionary for HS6 -> bec codes
     bec: dict = {}
@@ -269,10 +270,11 @@ def africa_to_categories(
                     "Wheat": 1,
                     "Petroleum oils": 2,
                     "Coal": 3,
-                    "Gas": 4,
+                    "Steel and Iron": 4,
                     "Sunflower oil": 5,
+                    "Gas": 6,
                 }
-            ).fillna(4)
+            ).fillna(99)
         )
         .sort_values(["year", "order", "value"], ascending=[True, True, False])
         .drop(["order",], axis=1)
@@ -308,10 +310,11 @@ def africa_to_categories_by_importer(
                     "Wheat": 1,
                     "Petroleum oils": 2,
                     "Coal": 3,
-                    "Gas": 4,
+                    "Steel and Iron": 4,
                     "Sunflower oil": 5,
+                    "Gas": 6,
                 }
-            ).fillna(4)
+            ).fillna(99)
         )
         .sort_values(
             ["year", "order", "importer_name", "value"],
@@ -396,7 +399,20 @@ def importers_to_categories(
         .groupby(["year", "importer_name", "cat2"], as_index=False)
         .sum()
         .assign(step_from=step_from, step_to=step_to)
-        .sort_values(["year", "cat2", "value"], ascending=[True, True, False])
+        .assign(
+            order=lambda d: d.cat2.map(
+                {
+                    "Wheat": 1,
+                    "Petroleum oils": 2,
+                    "Coal": 3,
+                    "Steel and Iron": 4,
+                    "Sunflower oil": 5,
+                    "Gas": 6,
+                }
+            ).fillna(99)
+        )
+        .sort_values(["year", "order", "importer_name"])
+        .drop(["order",], axis=1)
         .rename(columns={"importer_name": "source", "cat2": "target"})
         .assign(importer_name=lambda d: d.source)
         .reset_index(drop=True)
@@ -433,7 +449,15 @@ def alluvial_overall() -> tuple[
     ]
 
     # Individual African countries to commodity categories
-    s5 = importers_to_categories(data, step_from=3, step_to=4)
+    s5 = pd.concat(
+        [
+            exporters_to_african_countries(data, 0, 3).loc[
+                lambda d: d.source.isin(["Ukraine", "Russia"])
+            ],
+            importers_to_categories(data, 3, 4),
+        ],
+        ignore_index=True,
+    )
 
     return s0, s1, s2, s3, s4, s5
 

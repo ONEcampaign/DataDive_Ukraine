@@ -57,6 +57,20 @@ def vegetable_oils_dict(commodity_codes: pd.array) -> dict[str:str]:
     return oils
 
 
+def steel_dict() -> dict[str:str]:
+    return (pd.read_csv(
+        paths.raw_data + "/product_codes.csv", dtype={"code": int, "bec": str}
+    )
+
+    .loc[lambda d: d.code.isin(range(720000, 730000))]
+    .astype({'code': str})
+    .set_index("code")
+    .assign(description='Steel and Iron')
+    ["description"]
+    .to_dict()
+            )
+
+
 def bec_dict() -> dict[str:str]:
     return (
         pd.read_csv(
@@ -94,9 +108,9 @@ def bec_names() -> dict[str:str]:
         "32": "Fuels and Lubricants",
         "321": "Fuels and Lubricants",
         "322": "Fuels and Lubricants",
-        "4": "Capital goods (except transport equipment)",
-        "41": "Capital goods (except transport equipment)",
-        "42": "Capital goods (except transport equipment)",
+        "4": "Capital goods",
+        "41": "Capital goods ",
+        "42": "Capital goods",
         "5": "Transport equipment",
         "51": "Transport equipment",
         "52": "Transport equipment",
