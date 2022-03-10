@@ -70,6 +70,37 @@ def steel_dict() -> dict[str:str]:
     .to_dict()
             )
 
+def weapons_dict() -> dict[str:str]:
+    return (pd.read_csv(
+        paths.raw_data + "/product_codes.csv", dtype={"code": int, "bec": str}
+    )
+
+            .loc[lambda d: d.code.isin(range(930000, 940000))]
+            .astype({'code': str})
+            .set_index("code")
+            .assign(description='Weapons, Firearms, Ammunition')
+            ["description"]
+            .to_dict()
+            )
+
+def potash_dict(commodity_codes: pd.array) -> dict[str:str]:
+    potash = {
+
+        "310420": "Potash",
+        "310430": "Potash",
+        "310490": "Potash",
+        "281520": "Potash",
+        "310520": "Potash",
+        "252910": "Potash",
+
+    }
+
+    #for k in commodity_codes:
+    #    if k in range(270000, 280000) and k not in potash:
+    #        potash[str(k)] = "Other fuels"
+
+    return potash
+
 
 def bec_dict() -> dict[str:str]:
     return (

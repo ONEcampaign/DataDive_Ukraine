@@ -107,6 +107,10 @@ def world_trade() -> pd.DataFrame:
 
     return df.pipe(filter_africa, imp_exp="importer")
 
+def world_trade_all_importers() -> pd.DataFrame:
+    df = pd.concat([read_baci(year) for year in range(2018, 2021)], ignore_index=True)
+
+    return df
 
 if __name__ == "__main__":
     [baci2feather(year) for year in range(2018, 2021)]

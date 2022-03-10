@@ -1,11 +1,14 @@
 import pandas as pd
 
-from scripts.read import trade_data, world_trade
+from scripts.config import paths
+from scripts.read import trade_data, world_trade, world_trade_all_importers
 from scripts.codes import (
     cereals_dict,
     fuels_dict,
     vegetable_oils_dict,
     steel_dict,
+    weapons_dict,
+    potash_dict,
     codes_dict_bec,
     bec_names,
 )
@@ -18,7 +21,14 @@ def simplify_codes(df: pd.DataFrame) -> pd.DataFrame:
     cc: pd.array = df.commodity_code.unique()
 
     # Create a combined dictionary of all the detailed codes for study
-    cat = cereals_dict(cc) | fuels_dict(cc) | vegetable_oils_dict(cc) | steel_dict()
+    cat = (
+        cereals_dict(cc)
+        | fuels_dict(cc)
+        | vegetable_oils_dict(cc)
+        | steel_dict()
+        | weapons_dict()
+        | potash_dict(cc)
+    )
 
     # Create an empty dictionary for HS6 -> bec codes
     bec: dict = {}
@@ -110,12 +120,55 @@ def summarise_commodity_share_of_total(
     total: dict = df.groupby(["year", focus_column]).value.sum().to_dict()
 
     return (
-        df.groupby(["year", focus_column, commodity_column], as_index=False)
+        df.groupby(
+            ["year", "exporter_name", focus_column, commodity_column], as_index=False
+        )
         .value.sum()
         .assign(
             share=lambda d: d.value
             / d.set_index(["year", focus_column]).index.map(total)
         )
+    )
+
+
+def gdp_dict() -> dict:
+    return (
+        pd.read_csv(paths.raw_data + r"/2019gdp.csv")
+        .set_index(["iso_code"])["value"]
+        .to_dict()
+    )
+
+
+def summarise_commodity_source_share(
+    df: pd.DataFrame, commodity_column: str = "cat2",
+) -> pd.DataFrame:
+    """Calculate the share of total that a source represents for each commodity"""
+
+    total: dict = df.groupby(
+        ["year", "importer_name", commodity_column]
+    ).value.sum().to_dict()
+
+    return (
+        df.groupby(
+            ["year", "exporter_name", "importer", "importer_name", commodity_column],
+            as_index=False,
+        )
+        .value.sum()
+        .assign(
+            share=lambda d: d.value
+            / d.set_index(["year", "importer_name", commodity_column]).index.map(total)
+        )
+        # .loc[lambda d: d.exporter_name != "Rest of the World"]
+        # .groupby(["year", "importer", "importer_name", "cat2"], as_index=False)
+        # .sum()
+        .sort_values(["importer_name", "share"], ascending=(True, False))
+        .assign(
+            value=lambda d: round(d.value / 1e3, 1),
+            # share = lambda d: d.apply(lambda x: f'{round(100*x.share,1)}%', axis=1)
+            share=lambda d: round(100 * d.share, 1),
+            # gdp_share=lambda d: round(100 * d.value / d.importer.map(gdp_dict()), 3),
+        )
+        .reset_index(drop=True)
     )
 
 
@@ -142,6 +195,30 @@ def exports_to_africa_data(full_data: pd.DataFrame) -> pd.DataFrame:
     and Rest of the World)"""
     return (
         full_data.pipe(simplify_codes)
+        .pipe(simplify_exporter)
+        .pipe(group_by_category, category_col="cat2")
+        .pipe(average_yearly)
+        .pipe(add_country_names)
+    )
+
+
+def exports_no_intra_europe(full_data: pd.DataFrame) -> pd.DataFrame:
+    """Basic pipline to produce the exports to Africa data (from Russia, Ukraine,
+    and Rest of the World)"""
+    import country_converter as coco
+
+    cc = coco.CountryConverter()
+
+    eu = cc.data.set_index("ISO3")["EU27"].to_dict()
+
+    return (
+        full_data.pipe(simplify_codes)
+        .assign(
+            eu_exporter=lambda d: d.exporter.map(eu),
+            eu_importer=lambda d: d.importer.map(eu),
+        )
+        .loc[lambda d: ~((d.eu_exporter == "EU27") & (d.eu_importer == "EU27"))]
+        .drop(columns=["eu_exporter", "eu_importer"])
         .pipe(simplify_exporter)
         .pipe(group_by_category, category_col="cat2")
         .pipe(average_yearly)
@@ -287,6 +364,83 @@ def africa_to_categories(
     return df
 
 
+def exporter_to_categories(
+    data: pd.DataFrame, step_from: int = 1, step_to: int = 2
+) -> pd.DataFrame:
+    """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
+     from rest of the world), and filters and groups the data to show
+     the commodity categories as the target."""
+
+    df = (
+        data.filter(["year", "exporter", "importer_continent", "cat2", "value"], axis=1)
+        .groupby(["year", "exporter", "importer_continent", "cat2"], as_index=False)
+        .sum()
+        .assign(step_from=step_from, step_to=step_to)
+        .assign(
+            order=lambda d: d.cat2.map(
+                {
+                    "Wheat": 1,
+                    "Sunflower oil": 2,
+                    "Coal": 3,
+                    "Barley": 4,
+                    "Maize": 5,
+                    "Steel and Iron": 6,
+                    "Petroleum oils": 7,
+                }
+            ).fillna(99)
+        )
+        .sort_values(
+            ["year", "exporter", "order", "value"], ascending=[True, False, True, False]
+        )
+        .drop(["order",], axis=1)
+        .rename(columns={"exporter": "source", "cat2": "target"})
+        .reset_index(drop=True)
+    )
+
+    df.to_clipboard(index=False)
+
+    return df
+
+
+def exporter_to_categories_by_importer(
+    data: pd.DataFrame, step_from: int = 1, step_to: int = 2
+) -> pd.DataFrame:
+    """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
+     from rest of the world), and filters and groups the data to show
+     the commodity categories as the target."""
+
+    df = (
+        data.filter(["year", "exporter_name", "importer_name", "cat2", "value"], axis=1)
+        .groupby(["year", "exporter_name", "importer_name", "cat2"], as_index=False)
+        .sum()
+        .assign(step_from=step_from, step_to=step_to)
+        .assign(
+            order=lambda d: d.cat2.map(
+                {
+                    "Wheat": 1,
+                    "Sunflower oil": 2,
+                    "Coal": 3,
+                    "Barley": 4,
+                    "Maize": 5,
+                    "Steel and Iron": 6,
+                    "Petroleum oils": 7,
+                }
+            ).fillna(99)
+        )
+        .sort_values(
+            ["year", "exporter_name", "order", "value"],
+            ascending=[True, False, True, False],
+        )
+        .drop(["order",], axis=1)
+        .rename(columns={"exporter_name": "source", "cat2": "target"})
+        .reset_index(drop=True)
+    )
+
+    df.to_clipboard(index=False)
+
+    return df
+
+
 def africa_to_categories_by_importer(
     data: pd.DataFrame, step_from: int = 1, step_to: int = 2
 ) -> pd.DataFrame:
@@ -423,45 +577,132 @@ def importers_to_categories(
     return df
 
 
-def alluvial_overall() -> tuple[
-    pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame
-]:
+def data_as_pct(exports_data: pd.DataFrame) -> pd.DataFrame:
+    """Convert value to percentage, based on exporter and commodity"""
+
+    return (
+        exports_data.replace(
+            {"exporter": {"RUS": "Russia and Ukraine", "UKR": "Russia and Ukraine"}}
+        )
+        .groupby(["year", "exporter", "cat2"], as_index=False)
+        .sum()
+        .assign(
+            value=lambda d: round(
+                100 * d.value / d.groupby(["year", "cat2"])["value"].transform("sum"),
+                2,
+            )
+        )
+    )
+
+
+def flourish_story() -> None:
     """Pipeline for the story. This takes the individual steps for the charts and creates
     dataframes. It returns a tuple of the steps in order"""
-    full_data = world_trade()
-    data = exports_to_africa_data(full_data)
 
-    # World all regions to Africa
-    s0 = exporters_to_africa(data, step_from=0, step_to=1)
+    all_importers_data = world_trade_all_importers()
 
-    # Zoom into Russia and Ukraine to Africa
-    s1 = s0.loc[lambda d: d.source.isin(["Ukraine", "Russia"])].copy()
+    # SLIDES 2 and 3: Major share of key commodity exports
+    commodity_exp_share = (
+        exports_no_intra_europe(all_importers_data)
+        .pipe(summarise_commodity_source_share, "cat2")
+        .groupby(["year", "exporter_name", "cat2"], as_index=False)["value"]
+        .sum()
+        .assign(
+            share=lambda d: round(
+                100 * d.value / d.groupby(["year", "cat2"])["value"].transform("sum"), 1
+            )
+        )
+        .loc[
+            lambda d: d.cat2.isin(
+                [
+                    "Barley",
+                    "Maize",
+                    "Petroleum oils",
+                    "Sunflower oil",
+                    "Wheat",
+                    "Coal",
+                    "Steel and Iron",
+                    "Potash",
+                ]
+            )
+        ]
+        .loc[lambda d: d.exporter_name.isin(["Ukraine", "Russia"])]
+        .pivot(index="cat2", columns="exporter_name", values="share")
+    )
 
-    # Russia and Ukraine to Africa to commodity categories
-    s2 = pd.concat([s1, africa_to_categories(data, 1, 2)], ignore_index=True)
+    # Trade with Africa
+    africa_trade = world_trade()
+    data = exports_to_africa_data(africa_trade)
 
-    # Russia and Ukraine to Africa to individual countries
-    s3 = pd.concat([s1, africa_to_importers(data, 1, 3)], ignore_index=True)
+    # SLIDE 7: Exports to Africa
+    df = (
+        exporters_to_africa(data, step_from=0, step_to=1)
+        .loc[lambda d: d.source != "Africa"]
+        .assign(
+            pct=lambda d: round(
+                100 * d.value / d.groupby(["year"])["value"].transform("sum"), 2
+            )
+        )
+    )
 
-    # Russia and Ukraine to individual African countries (directly)
-    s4 = exporters_to_african_countries(data, 0, 4).loc[
+    # SLIDE 8: Exports to Africa, zoom Ukraine and Russia
+    df_zoom = df.loc[lambda d: d.source.isin(["Ukraine", "Russia"])].copy()
+
+    # SLIDE 9: Ukraine and Russia to African countries
+    to_african = exporters_to_african_countries(data, 0, 4).loc[
         lambda d: d.source.isin(["Ukraine", "Russia"])
     ]
 
-    # Individual African countries to commodity categories
-    s5 = pd.concat(
-        [
-            exporters_to_african_countries(data, 0, 3).loc[
-                lambda d: d.source.isin(["Ukraine", "Russia"])
-            ],
-            importers_to_categories(data, 3, 4),
-        ],
-        ignore_index=True,
+    # SLIDE 12 and 13: Russia and Ukraine to commodity categories
+    df_commodity = (
+        exporter_to_categories(data, 0, 2)
+        .replace({"source": {"RUS": "Russia", "UKR": "Ukraine"}})
+        .drop(["importer_continent"], axis=1)
+        .assign(
+            share=lambda d: round(
+                100 * d.value / d.groupby(["year", "target"])["value"].transform("sum"),
+                2,
+            )
+        )
+        .loc[lambda d: d.source != "Rest of the World"]
     )
 
-    return s0, s1, s2, s3, s4, s5
+    # Russia and Ukraine (together) to African countries by category
+    afr_cat = (
+        exporter_to_categories_by_importer(data, 0, 4)
+        .assign(
+            share=lambda d: round(
+                100
+                * d.value
+                / d.groupby(["year", "target", "importer_name"])["value"].transform(
+                    "sum"
+                ),
+                2,
+            )
+        )
+        .loc[lambda d: d.source != "Rest of the World"]
+        .groupby(["year", "importer_name", "target"], as_index=False)[
+            ["value", "share"]
+        ]
+        .sum()
+    )
+
+    # SLIDE 14 : wheat
+    wheat = (
+        afr_cat.loc[lambda d: d.target == "Wheat"]
+        .copy()
+        .assign(value=lambda d: round(d.value / 1e3, 1))
+        .assign(value=lambda d: d.value.astype(str) + "m")
+    )
+    # SLIDE 15: barley
+    barley = (
+        afr_cat.loc[lambda d: d.target == "Barley"]
+        .copy()
+        .assign(value=lambda d: round(d.value / 1e3, 1))
+        .assign(value=lambda d: d.value.astype(str) + "m")
+    )
 
 
 if __name__ == "__main__":
     pass
-    chart1, chart2, chart3, chart4, chart5, chart6 = alluvial_overall()
+
