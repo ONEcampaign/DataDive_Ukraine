@@ -17,11 +17,12 @@ provides monthly prices for major global commodities in nominal USD.
 
 ## Repository Structure and Information
 
-In order to reproduce the analysis, Python (>=3.10) is needed. Additionally, bilateral
+In order to reproduce the analysis, Python (>=3.10) is needed. Other required packages are
+listed in `requirements.txt`. Additionally, bilateral
 trade data is too large to be stored in this repository and needs to be manually 
 downloaded from [BACI](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37).
 
-The repository includes the following subfolders:
+The repository includes the following sub-folders:
 - `output`: contains clean and formatted csv filed that are used to create the visualizations.
 - `raw_data`: contains raw data used for the analysis and metadata including product and country
 codes. Manually downloaded files are added to this folder.
