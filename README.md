@@ -2,21 +2,46 @@
 
 This repository powers the analysis for the trade visualizations on the page: 
 [Data Dive:The Russian Invasion of Ukraine](https://www.one.org/africa/issues/covid-19-tracker/explore-ukraine/)  
-using data from [Centre d'Etudes Prospectives et d'Informations Internationales]() (CEPII). 
-The [BACI dataset](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37) 
-provides disaggregated bilateral trade flow data using official data from
-[COMTRADE](https://comtrade.un.org/). Visualizations are created using 
-[Flourish](https://flourish.studio/).
+using bilateral trade from the
+[BACI dataset](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37) 
+and global commodity prices from the 
+[World Bank](https://www.worldbank.org/en/research/commodity-markets#1).
 
-In order to reproduce the analysis Python (>=3.10) is needed. Additionally, 
+
+[BACI](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37)
+provides disaggregated bilateral trade data through official trade data reported on
+[COMTRADE](https://comtrade.un.org/). This analysis uses 2017 Harmonized System product nomenclature.
+The [World Bank](https://www.worldbank.org/en/research/commodity-markets#1)
+provides monthly prices for major global commodities in nominal USD.
+
+
+## Repository Structure and Information
+
+In order to reproduce the analysis, Python (>=3.10) is needed. Additionally, bilateral
 trade data is too large to be stored in this repository and needs to be manually 
 downloaded from [BACI](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37).
 
-
 The repository includes the following subfolders:
-- `output`
-- `raw_data`
-- `scripts`
+- `output`: contains clean and formatted csv filed that are used to create the visualizations.
+- `raw_data`: contains raw data used for the analysis and metadata including product and country
+codes. Manually downloaded files are added to this folder.
+- `scripts`: scripts for creating the analysis. `codes.py` contains grouped HS codes as lists. 
+`read.py` contains functions to read BACI trade data, do some preprocessing and save the data
+as a feather file. `commodities.py` contains functions to clean and manipulate commodity price dat.
+`story.py` creates the final csv files used to produce the visualizations. 
+Additionally a `config.py` file manages file paths to different folders.
+
+#### Downloading BACI trade data
+
+The Centre d'Etudes Prospectives et d'Informations Internationales maintains the
+[BACI Dataset](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37). HS17 data file 
+is used for this analysis.
+
+Direct download link: http://www.cepii.fr/DATA_DOWNLOAD/baci/data/BACI_HS17_V202201.zip
+
+Once the zipped file is downloaded the csv filed for 2018, 2019, and 2020 are used. 
+These files should be moved to the `raw_data` folder with the naming convention `hs17_{year}.csv"`.
+
 
 
 
