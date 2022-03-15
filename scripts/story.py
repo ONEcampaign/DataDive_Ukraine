@@ -1,3 +1,8 @@
+"""
+Script to create the final csv files used to produce the flourish visualisations
+Final csv files are stored in the output folder
+"""
+
 import pandas as pd
 from scripts.config import paths
 from scripts.read_trade_data import world_trade_all_importers, world_trade_africa
