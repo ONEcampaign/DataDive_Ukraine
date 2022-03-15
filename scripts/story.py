@@ -53,7 +53,7 @@ def simplify_exporter(
     grouping_name: str = "Rest of the World",
 ) -> pd.DataFrame:
     """Simplify exporters. Show the exporters in 'detailed exporters' and group the
-    rest under 'grouping name'. """
+    rest under 'grouping name'."""
 
     # If a list is not provided, Ukraine and Russia will be default
     if detailed_exporters is None:
@@ -140,13 +140,14 @@ def gdp_dict() -> dict:
 
 
 def summarise_commodity_source_share(
-    df: pd.DataFrame, commodity_column: str = "cat2",
+    df: pd.DataFrame,
+    commodity_column: str = "cat2",
 ) -> pd.DataFrame:
     """Calculate the share of total that a source represents for each commodity"""
 
-    total: dict = df.groupby(
-        ["year", "importer_name", commodity_column]
-    ).value.sum().to_dict()
+    total: dict = (
+        df.groupby(["year", "importer_name", commodity_column]).value.sum().to_dict()
+    )
 
     return (
         df.groupby(
@@ -270,7 +271,12 @@ def exporters_to_africa(
             )
         )
         .sort_values(["order", "year", "value"], ascending=[True, False, False])
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .reset_index(drop=True)
         .assign(exporter_name=lambda d: d.source)
     )
@@ -288,7 +294,13 @@ def exporters_to_african_countries(
 
     df = (
         data.filter(
-            ["year", "exporter_name", "exporter_continent", "importer_name", "value",],
+            [
+                "year",
+                "exporter_name",
+                "exporter_continent",
+                "importer_name",
+                "value",
+            ],
             axis=1,
         )
         .groupby(
@@ -318,7 +330,12 @@ def exporters_to_african_countries(
             )
         )
         .sort_values(["order", "year", "value"], ascending=[True, False, False])
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .reset_index(drop=True)
         .assign(importer_name=lambda d: d.target)
     )
@@ -332,8 +349,8 @@ def africa_to_categories(
     data: pd.DataFrame, step_from: int = 1, step_to: int = 2
 ) -> pd.DataFrame:
     """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
-     from rest of the world), and filters and groups the data to show
-     the commodity categories as the target."""
+    from rest of the world), and filters and groups the data to show
+    the commodity categories as the target."""
 
     df = (
         data.loc[lambda d: d.exporter != "Rest of the World"]
@@ -354,7 +371,12 @@ def africa_to_categories(
             ).fillna(99)
         )
         .sort_values(["year", "order", "value"], ascending=[True, True, False])
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"importer_continent": "source", "cat2": "target"})
         .reset_index(drop=True)
     )
@@ -368,8 +390,8 @@ def exporter_to_categories(
     data: pd.DataFrame, step_from: int = 1, step_to: int = 2
 ) -> pd.DataFrame:
     """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
-     from rest of the world), and filters and groups the data to show
-     the commodity categories as the target."""
+    from rest of the world), and filters and groups the data to show
+    the commodity categories as the target."""
 
     df = (
         data.filter(["year", "exporter", "importer_continent", "cat2", "value"], axis=1)
@@ -392,7 +414,12 @@ def exporter_to_categories(
         .sort_values(
             ["year", "exporter", "order", "value"], ascending=[True, False, True, False]
         )
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"exporter": "source", "cat2": "target"})
         .reset_index(drop=True)
     )
@@ -406,8 +433,8 @@ def exporter_to_categories_by_importer(
     data: pd.DataFrame, step_from: int = 1, step_to: int = 2
 ) -> pd.DataFrame:
     """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
-     from rest of the world), and filters and groups the data to show
-     the commodity categories as the target."""
+    from rest of the world), and filters and groups the data to show
+    the commodity categories as the target."""
 
     df = (
         data.filter(["year", "exporter_name", "importer_name", "cat2", "value"], axis=1)
@@ -431,7 +458,12 @@ def exporter_to_categories_by_importer(
             ["year", "exporter_name", "order", "value"],
             ascending=[True, False, True, False],
         )
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"exporter_name": "source", "cat2": "target"})
         .reset_index(drop=True)
     )
@@ -474,7 +506,12 @@ def africa_to_categories_by_importer(
             ["year", "order", "importer_name", "value"],
             ascending=[True, True, True, False],
         )
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"importer_continent": "source", "cat2": "target"})
         .filter(
             [
@@ -500,8 +537,8 @@ def africa_to_importers(
     data: pd.DataFrame, step_from: int = 1, step_to: int = 2
 ) -> pd.DataFrame:
     """Pipeline for a flourish chart. This takes 'Africa' as the source (excluding imports
-     from rest of the world), and filters and groups the data to show
-     individual African countries as the target."""
+    from rest of the world), and filters and groups the data to show
+    individual African countries as the target."""
     df = (
         data.loc[lambda d: d.exporter != "Rest of the World"]
         .filter(["year", "importer_continent", "importer_name", "value"], axis=1)
@@ -566,7 +603,12 @@ def importers_to_categories(
             ).fillna(99)
         )
         .sort_values(["year", "order", "importer_name"])
-        .drop(["order",], axis=1)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"importer_name": "source", "cat2": "target"})
         .assign(importer_name=lambda d: d.source)
         .reset_index(drop=True)
@@ -705,4 +747,3 @@ def flourish_story() -> None:
 
 if __name__ == "__main__":
     pass
-

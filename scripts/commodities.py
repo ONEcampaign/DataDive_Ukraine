@@ -14,7 +14,7 @@ COMMODITY_LIST = ["Sunflower oil", "Maize", "Wheat, US HRW", "Palm oil"]
 
 
 def get_commodity_prices(commodities: list) -> pd.DataFrame:
-    """"
+    """ "
     steps to extract commodity data and clean the dataframe
     """
     # read excel
@@ -29,10 +29,10 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
     df.columns = df.iloc[3]
     df = (
         df.rename(columns={np.nan: "period"})
-            .iloc[6:]
-            .reset_index(drop=True)
-            .filter(["period"] + commodities)
-            .replace("..", np.nan)
+        .iloc[6:]
+        .reset_index(drop=True)
+        .filter(["period"] + commodities)
+        .replace("..", np.nan)
     )
 
     # change date format
