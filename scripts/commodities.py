@@ -8,31 +8,34 @@ Values are in nominal USD
 
 import pandas as pd
 from scripts import config
-import numpy as np
+from numpy import nan
+
+# ==================  PARAMETERS ====================== #
 
 COMMODITY_LIST = ["Sunflower oil", "Maize", "Wheat, US HRW", "Palm oil"]
 
+COMMODITY_URL = (
+    "https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-"
+    "0350012021/related/CMO-Historical-Data-Monthly.xlsx"
+)
+
 
 def get_commodity_prices(commodities: list) -> pd.DataFrame:
-    """ "
-    steps to extract commodity data and clean the dataframe
+    """
+    Gets the commodity data from the World Bank and returns a clean DataFrame
     """
     # read excel
-    url = (
-        "https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-"
-        "0350012021/related/CMO-Historical-Data-Monthly.xlsx"
-    )
-
-    df = pd.read_excel(url, sheet_name="Monthly Prices")
+    df = pd.read_excel(COMMODITY_URL, sheet_name="Monthly Prices")
 
     # cleaning
     df.columns = df.iloc[3]
     df = (
-        df.rename(columns={np.nan: "period"})
+        df.rename(columns={nan: "period"})
         .iloc[6:]
         .reset_index(drop=True)
         .filter(["period"] + commodities)
-        .replace("..", np.nan)
+        .replace("..", nan)
+        .rename(columns={"Wheat, US HRW": "Wheat"})
     )
 
     # change date format
@@ -41,10 +44,9 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
     return df
 
 
-def commodity_chart(df: pd.DataFrame, start_date: str) -> pd.DataFrame:
-    """
-    Steps to manipulate to dataframe for a flourish viz
-    """
+def create_commodity_chart_data(df: pd.DataFrame, start_date: str) -> None:
+    """Filters the data for selected start date.
+    Creates a CSV formatted for Flourish."""
 
     df = df.loc[df.period >= start_date].reset_index(drop=True)
 
@@ -54,7 +56,8 @@ def commodity_chart(df: pd.DataFrame, start_date: str) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    data = get_commodity_prices(COMMODITY_LIST)
+    # Get the commodity data
+    data = get_commodity_prices(commodities=COMMODITY_LIST)
 
     # create chart csv
-    commodity_chart(data, "2018-01-01")
+    create_commodity_chart_data(df=data, start_date="2018-01-01")
