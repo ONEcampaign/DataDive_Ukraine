@@ -1,7 +1,7 @@
 # Data Dive: The Russian Invasion of Ukraine
 
 This repository powers the analysis for the trade visualizations on the page: 
-[Data Dive:The Russian Invasion of Ukraine](https://www.one.org/africa/issues/covid-19-tracker/explore-ukraine/) using bilateral trade from the
+[Data Dive: How Russia's invasion of Ukraine will impact Africa](https://www.one.org/africa/issues/covid-19-tracker/explore-ukraine/) using bilateral trade from the
 [BACI dataset](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37) 
 and global commodity prices from the [World Bank](https://www.worldbank.org/en/research/commodity-markets#1).
 
