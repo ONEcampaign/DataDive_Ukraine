@@ -1,7 +1,7 @@
 import pandas as pd
 
 from scripts.config import paths
-from scripts.read_data import trade_data, world_trade, world_trade_all_importers
+from scripts.read_data import world_trade_all_importers, world_trade_africa
 from scripts.codes import (
     cereals_dict,
     fuels_dict,
@@ -673,7 +673,7 @@ def flourish_story() -> None:
     )
 
     # Trade with Africa
-    africa_trade = world_trade()
+    africa_trade = world_trade_africa()
     data = exports_to_africa_data(africa_trade)
 
     # SLIDE 7: Exports to Africa
