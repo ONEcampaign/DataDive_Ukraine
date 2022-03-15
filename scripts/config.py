@@ -1,6 +1,7 @@
-import os
+""""Creates a class to store the paths to different files and directories."""
 
-# Paths
+
+import os
 
 
 class Paths:

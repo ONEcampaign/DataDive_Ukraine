@@ -1,8 +1,14 @@
+"""
+Dictionaries to create specific groups of codes for trade data. All codes are
+HS17, except where noted otherwise.
+"""
+
 import pandas as pd
 from scripts.config import paths
 
 
 def cereals_dict(commodity_codes: pd.array) -> dict[str:str]:
+    """Dictionary of key cereals used in the DataDive"""
     cereals = {
         "100111": "Wheat",
         "100119": "Wheat",
@@ -22,6 +28,7 @@ def cereals_dict(commodity_codes: pd.array) -> dict[str:str]:
 
 
 def fuels_dict(commodity_codes: pd.array) -> dict[str:str]:
+    """Dictionary of key fuels used in the DataDive"""
     fuels = {
         "270111": "Coal",
         "270112": "Coal",
@@ -45,6 +52,7 @@ def fuels_dict(commodity_codes: pd.array) -> dict[str:str]:
 
 
 def vegetable_oils_dict(commodity_codes: pd.array) -> dict[str:str]:
+    """Dictionary of key oils used in the DataDive"""
     oils = {
         "151211": "Sunflower oil",
         "151219": "Sunflower oil",
@@ -58,6 +66,7 @@ def vegetable_oils_dict(commodity_codes: pd.array) -> dict[str:str]:
 
 
 def steel_dict() -> dict[str:str]:
+    """Dictionary of key Steel and Iron used in the DataDive."""
     return (
         pd.read_csv(
             paths.raw_data + "/product_codes.csv", dtype={"code": int, "bec": str}
@@ -71,6 +80,7 @@ def steel_dict() -> dict[str:str]:
 
 
 def weapons_dict() -> dict[str:str]:
+    """Dictionary of weapons, used in the DataDive"""
     return (
         pd.read_csv(
             paths.raw_data + "/product_codes.csv", dtype={"code": int, "bec": str}
@@ -83,7 +93,8 @@ def weapons_dict() -> dict[str:str]:
     )
 
 
-def potash_dict(commodity_codes: pd.array) -> dict[str:str]:
+def potash_dict() -> dict[str:str]:
+    """Dictionary of codes used to identify Potash exports for the DataDive"""
     potash = {
         "310420": "Potash",
         "310430": "Potash",
@@ -93,14 +104,11 @@ def potash_dict(commodity_codes: pd.array) -> dict[str:str]:
         "252910": "Potash",
     }
 
-    # for k in commodity_codes:
-    #    if k in range(270000, 280000) and k not in potash:
-    #        potash[str(k)] = "Other fuels"
-
     return potash
 
 
 def bec_dict() -> dict[str:str]:
+    """Dictionary of HS17 to BEC codes"""
     return (
         pd.read_csv(
             paths.raw_data + "/hs17_bec.csv", dtype={"HS 2017": str, "BEC": str}
@@ -111,6 +119,7 @@ def bec_dict() -> dict[str:str]:
 
 
 def codes_dict_bec() -> dict[str:str]:
+    """Dictionary of CEPII codes to BEC codes"""
     return (
         pd.read_csv(
             paths.raw_data + "/product_codes.csv", dtype={"code": str, "bec": str}
@@ -121,6 +130,7 @@ def codes_dict_bec() -> dict[str:str]:
 
 
 def bec_names() -> dict[str:str]:
+    """Dictionary to translate BEC codes to category names"""
     return {
         "1": "Food and beverages",
         "11": "Food and beverages",
