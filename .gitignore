@@ -132,3 +132,13 @@ dmypy.json
 
 
 .idea/
+
+#Big files
+raw_data/hs17_2017.csv
+raw_data/hs17_2018.csv
+raw_data/hs17_2018.feather
+raw_data/hs17_2019.csv
+raw_data/hs17_2019.feather
+raw_data/hs17_2020.csv
+raw_data/hs17_2020.feather
+raw_data/hs17_2017.csv
