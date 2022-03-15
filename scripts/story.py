@@ -1,7 +1,7 @@
 import pandas as pd
 
 from scripts.config import paths
-from scripts.read import trade_data, world_trade, world_trade_all_importers
+from scripts.read_data import trade_data, world_trade, world_trade_all_importers
 from scripts.codes import (
     cereals_dict,
     fuels_dict,

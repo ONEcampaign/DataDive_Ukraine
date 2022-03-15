@@ -2,19 +2,24 @@
 preprocessing and save to a feather file. It also contains functions to read the data
 as a pandas dataframe."""
 
-import pandas as pd
 from scripts.config import paths
-
+import pandas as pd
 import country_converter as coco
+
+# ====================   PARAMETERS  ====================
+
+COUNTRY_CODES_FILE: str = "country_codes.csv"
+TRADE_FILE_NAME_PREFIX: str = "hs17_"
 
 
 def _countries_dict() -> dict:
     """Returns a dictionary with country codes as keys and ISO3 as values"""
-    countries = pd.read_csv(f"{paths.raw_data}/country_codes.csv")
+    countries = pd.read_csv(f"{paths.raw_data}/{COUNTRY_CODES_FILE}")
     return countries.set_index("country_code")["iso_3digit_alpha"].to_dict()
 
 
 def _continents_dict() -> dict:
+    """Uses country converter to create a dictionary of ISO3 codes to continents"""
     cc = coco.CountryConverter()
     return cc.data.set_index("ISO3")["continent"].to_dict()
 
@@ -30,7 +35,9 @@ def baci2feather(year: int = 2020) -> None:
 
     df = (
         pd.read_csv(
-            f"{paths.raw_data}/hs17_{year}.csv", dtype={"k": str}, keep_default_na=False
+            f"{paths.raw_data}/{TRADE_FILE_NAME_PREFIX}{year}.csv",
+            dtype={"k": str},
+            keep_default_na=False,
         )
         .rename(
             columns={
@@ -57,7 +64,7 @@ def baci2feather(year: int = 2020) -> None:
                 "year": "int16",
                 "exporter": "str",
                 "importer": "str",
-                "commodity_code": "str",
+                "commodity_code": "str",  # Must be string so leading zeros are kept
                 "importer_continent": "str",
                 "exporter_continent": "str",
             }
@@ -65,12 +72,12 @@ def baci2feather(year: int = 2020) -> None:
         .reset_index(drop=True)
     )
 
-    df.to_feather(f"{paths.raw_data}/hs17_{year}.feather")
+    df.to_feather(f"{paths.raw_data}/{TRADE_FILE_NAME_PREFIX}{year}.feather")
 
 
 def read_baci(year: int = 2020) -> pd.DataFrame:
     """Read the feather file for a specific year"""
-    return pd.read_feather(f"{paths.raw_data}/hs17_{year}.feather")
+    return pd.read_feather(f"{paths.raw_data}/{TRADE_FILE_NAME_PREFIX}{year}.feather")
 
 
 def filter_africa(df: pd.DataFrame, imp_exp: str = "exporter") -> pd.DataFrame:
@@ -92,29 +99,32 @@ def filter_exporter(df: pd.DataFrame, exporter_iso: str | list) -> pd.DataFrame:
     return df.loc[df["exporter"].isin(exporter_iso)].reset_index(drop=True)
 
 
-def trade_data() -> pd.DataFrame:
-    """A DataFrame of BACI data for 2018-2020, filtered for Africa as importer,
+def world_trade_all_importers(start: int = 2018, end: int = 2020) -> pd.DataFrame:
+    """ Read trade data for all exporters towards all importers for years specified"""
+    return pd.concat(
+        [read_baci(year) for year in range(start, end + 1)], ignore_index=True
+    )
+
+
+def world_trade_africa(start: int = 2018, end: int = 2020) -> pd.DataFrame:
+    """ Read trade data for all exporters towards all african importers for years specified"""
+
+    return world_trade_all_importers(start=start, end=end).pipe(
+        filter_africa, imp_exp="importer"
+    )
+
+
+def ukr_rus_trade_africa_trade(start: int = 2018, end: int = 2020) -> pd.DataFrame:
+    """A DataFrame of BACI data for specified years, filtered for Africa as importer,
     and Ukraine and Russia as exporters"""
 
-    df = pd.concat([read_baci(year) for year in range(2018, 2021)], ignore_index=True)
-
-    return df.pipe(filter_africa, imp_exp="importer").pipe(
+    return world_trade_africa(start=start, end=end).pipe(
         filter_exporter, ["RUS", "UKR"]
     )
 
 
-def world_trade() -> pd.DataFrame:
-    df = pd.concat([read_baci(year) for year in range(2018, 2021)], ignore_index=True)
-
-    return df.pipe(filter_africa, imp_exp="importer")
-
-
-def world_trade_all_importers() -> pd.DataFrame:
-    df = pd.concat([read_baci(year) for year in range(2018, 2021)], ignore_index=True)
-
-    return df
-
-
 if __name__ == "__main__":
+
+    # Create feather files for years specified
     [baci2feather(year) for year in range(2018, 2021)]
-    data = world_trade()
+
