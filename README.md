@@ -1,11 +1,9 @@
 # Data Dive: The Russian Invasion of Ukraine
 
 This repository powers the analysis for the trade visualizations on the page: 
-[Data Dive:The Russian Invasion of Ukraine](https://www.one.org/africa/issues/covid-19-tracker/explore-ukraine/)  
-using bilateral trade from the
+[Data Dive:The Russian Invasion of Ukraine](https://www.one.org/africa/issues/covid-19-tracker/explore-ukraine/) using bilateral trade from the
 [BACI dataset](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37) 
-and global commodity prices from the 
-[World Bank](https://www.worldbank.org/en/research/commodity-markets#1).
+and global commodity prices from the [World Bank](https://www.worldbank.org/en/research/commodity-markets#1).
 
 
 [BACI](http://www.cepii.fr/cepii/en/bdd_modele/presentation.asp?id=37)
@@ -27,9 +25,9 @@ The repository includes the following sub-folders:
 - `raw_data`: contains raw data used for the analysis and metadata including product and country
 codes. Manually downloaded files are added to this folder.
 - `scripts`: scripts for creating the analysis. `codes.py` contains grouped HS codes as lists. 
-`read.py` contains functions to read BACI trade data, do some preprocessing and save the data
-as a feather file. `commodities.py` contains functions to clean and manipulate commodity price dat.
-`story.py` creates the final csv files used to produce the visualizations. 
+`read_trade_data.py` contains functions to read BACI trade data from CEPII, do some preprocessing and save the data
+as a feather file. `commodities_analysis.py` contains functions to clean and manipulate commodity price data.
+`trade_common.py` contains functions to manipulate the trade data and `story.py` creates the final csv files used to produce the flourish visualisations. 
 Additionally a `config.py` file manages file paths to different folders.
 
 #### Downloading BACI trade data
