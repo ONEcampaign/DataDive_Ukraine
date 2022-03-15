@@ -99,7 +99,7 @@ def average_yearly(df: pd.DataFrame) -> pd.DataFrame:
 
 def gdp_dict() -> dict:
     return (
-        pd.read_csv(paths.raw_data + fr"/{GDP_FILE_NAME}")
+        pd.read_csv(paths.raw_data + rf"/{GDP_FILE_NAME}")
         .set_index(["iso_code"])["value"]
         .to_dict()
     )
@@ -114,7 +114,8 @@ def eu_27_dict() -> dict:
 
 
 def summarise_commodity_source_share(
-    df: pd.DataFrame, commodity_column: str = "cat2",
+    df: pd.DataFrame,
+    commodity_column: str = "cat2",
 ) -> pd.DataFrame:
     """Calculate the share of total that a source represents for each commodity"""
 
@@ -234,7 +235,12 @@ def exporters_to_africa(
             )
         )
         .sort_values(["order", "year", "value"], ascending=[True, False, False])
-        .drop(["order",], axis=1,)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .reset_index(drop=True)
         .assign(exporter_name=lambda d: d.source)
     )
@@ -250,7 +256,13 @@ def exporters_to_african_countries(
 
     df = (
         data.filter(
-            ["year", "exporter_name", "exporter_continent", "importer_name", "value",],
+            [
+                "year",
+                "exporter_name",
+                "exporter_continent",
+                "importer_name",
+                "value",
+            ],
             axis=1,
         )
         .groupby(
@@ -280,7 +292,12 @@ def exporters_to_african_countries(
             )
         )
         .sort_values(["order", "year", "value"], ascending=[True, False, False])
-        .drop(["order",], axis=1,)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .reset_index(drop=True)
         .assign(importer_name=lambda d: d.target)
     )
@@ -316,7 +333,12 @@ def africa_to_categories(
             ).fillna(99)
         )
         .sort_values(["year", "order", "value"], ascending=[True, True, False])
-        .drop(["order",], axis=1,)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"importer_continent": "source", "cat2": "target"})
         .reset_index(drop=True)
     )
@@ -352,7 +374,12 @@ def exporter_to_categories(
         .sort_values(
             ["year", "exporter", "order", "value"], ascending=[True, False, True, False]
         )
-        .drop(["order",], axis=1,)
+        .drop(
+            [
+                "order",
+            ],
+            axis=1,
+        )
         .rename(columns={"exporter": "source", "cat2": "target"})
         .reset_index(drop=True)
     )
@@ -391,7 +418,10 @@ def exporter_to_categories_by_importer(
             ["year", "exporter_name", "order", "value"],
             ascending=[True, False, True, False],
         )
-        .drop(["order"], axis=1,)
+        .drop(
+            ["order"],
+            axis=1,
+        )
         .rename(columns={"exporter_name": "source", "cat2": "target"})
         .reset_index(drop=True)
     )

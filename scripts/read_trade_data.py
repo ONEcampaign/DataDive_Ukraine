@@ -100,14 +100,14 @@ def filter_exporter(df: pd.DataFrame, exporter_iso: str | list) -> pd.DataFrame:
 
 
 def world_trade_all_importers(start: int = 2018, end: int = 2020) -> pd.DataFrame:
-    """ Read trade data for all exporters towards all importers for years specified"""
+    """Read trade data for all exporters towards all importers for years specified"""
     return pd.concat(
         [read_baci(year) for year in range(start, end + 1)], ignore_index=True
     )
 
 
 def world_trade_africa(start: int = 2018, end: int = 2020) -> pd.DataFrame:
-    """ Read trade data for all exporters towards all african importers for years specified"""
+    """Read trade data for all exporters towards all african importers for years specified"""
 
     return world_trade_all_importers(start=start, end=end).pipe(
         filter_africa, imp_exp="importer"
@@ -127,4 +127,3 @@ if __name__ == "__main__":
 
     # Create feather files for years specified
     [baci2feather(year) for year in range(2018, 2021)]
-

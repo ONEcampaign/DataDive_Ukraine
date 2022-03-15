@@ -111,8 +111,7 @@ def flourish_story() -> None:
 
     # SLIDES 2 and 3: Major share of key commodity exports
     commodity_exports_share = commodity_exports_by_continent(ALL_IMPORTERS_DATA)
-    commodity_exports_share.to_csv(
-        paths.output + r"/commodity_exports_share.csv")
+    commodity_exports_share.to_csv(paths.output + r"/commodity_exports_share.csv")
 
     # Trade with Africa data
     data = tc.exports_to_africa_data(AFRICA_TRADE_DATA)
