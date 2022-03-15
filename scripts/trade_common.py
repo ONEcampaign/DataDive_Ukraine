@@ -1,3 +1,7 @@
+"""
+Functions to manipulate trade data.
+"""
+
 import pandas as pd
 from scripts import codes
 
