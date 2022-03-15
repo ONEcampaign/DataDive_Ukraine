@@ -10,7 +10,7 @@ import pandas as pd
 from scripts import config
 from numpy import nan
 
-# ==================  PARAMETERS ====================== #
+# ==================  PARAMETERS ======================
 
 COMMODITY_LIST = ["Sunflower oil", "Maize", "Wheat, US HRW", "Palm oil"]
 
@@ -18,6 +18,8 @@ COMMODITY_URL = (
     "https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-"
     "0350012021/related/CMO-Historical-Data-Monthly.xlsx"
 )
+
+# =======================================================
 
 
 def get_commodity_prices(commodities: list) -> pd.DataFrame:
