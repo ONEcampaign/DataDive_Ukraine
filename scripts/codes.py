@@ -148,7 +148,7 @@ def bec_names() -> dict[str:str]:
         "321": "Fuels and Lubricants",
         "322": "Fuels and Lubricants",
         "4": "Capital goods",
-        "41": "Capital goods ",
+        "41": "Capital goods",
         "42": "Capital goods",
         "5": "Transport equipment",
         "51": "Transport equipment",

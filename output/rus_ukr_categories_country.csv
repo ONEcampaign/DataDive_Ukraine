@@ -1,7 +1,6 @@
 year,importer_name,target,value,share
 2018-2020,Algeria,Barley,12222.0597,14.059999999999999
-2018-2020,Algeria,Capital goods,38973.594000000005,1.53
-2018-2020,Algeria,Capital goods ,268046.354,4.76
+2018-2020,Algeria,Capital goods,307019.94800000003,3.75
 2018-2020,Algeria,Coal,526.9153,18.44
 2018-2020,Algeria,Consumption goods n.e.s,11121.145,0.27
 2018-2020,Algeria,Food and beverages,121389.3547,2.7199999999999998
@@ -16,8 +15,7 @@ year,importer_name,target,value,share
 2018-2020,Algeria,Transport equipment,306354.95530000003,6.1
 2018-2020,Algeria,"Weapons, Firearms, Ammunition",42758.733,49.24
 2018-2020,Algeria,Wheat,2148.988,0.14
-2018-2020,Angola,Capital goods,2775.9374,0.36
-2018-2020,Angola,Capital goods ,5920.3564,0.23
+2018-2020,Angola,Capital goods,8696.293599999999,0.26
 2018-2020,Angola,Consumption goods n.e.s,180.5344,0.02
 2018-2020,Angola,Food and beverages,23418.375999999997,1.0899999999999999
 2018-2020,Angola,Fuels and Lubricants,4.8467,0.07
@@ -31,8 +29,7 @@ year,importer_name,target,value,share
 2018-2020,Angola,"Weapons, Firearms, Ammunition",16120.6243,49.61
 2018-2020,Angola,Wheat,25098.2783,15.88
 2018-2020,Benin,Barley,0.5793,88.27
-2018-2020,Benin,Capital goods,1.268,0.0
-2018-2020,Benin,Capital goods ,17.5853,0.01
+2018-2020,Benin,Capital goods,18.8533,0.01
 2018-2020,Benin,Coal,5243.134,66.53
 2018-2020,Benin,Consumption goods n.e.s,0.5720000000000001,0.0
 2018-2020,Benin,Food and beverages,4774.343699999999,0.28
@@ -45,16 +42,14 @@ year,importer_name,target,value,share
 2018-2020,Benin,Sunflower oil,488.576,66.91
 2018-2020,Benin,Transport equipment,29.4253,0.0
 2018-2020,Benin,Wheat,3391.7693,99.9
-2018-2020,Botswana,Capital goods,512.2887,0.19
-2018-2020,Botswana,Capital goods ,106.3856,0.02
+2018-2020,Botswana,Capital goods,618.6743,0.06999999999999999
 2018-2020,Botswana,Consumption goods n.e.s,10.051400000000001,0.0
 2018-2020,Botswana,Food and beverages,0.4663,0.0
 2018-2020,Botswana,Industrial Supplies,22997.5497,0.86
 2018-2020,Botswana,Sunflower oil,144.1813,0.59
 2018-2020,Botswana,Transport equipment,19.1743,0.0
 2018-2020,Botswana,Wheat,33.5103,0.38
-2018-2020,Burkina Faso,Capital goods,467.7204,0.21000000000000002
-2018-2020,Burkina Faso,Capital goods ,1075.1894,0.23
+2018-2020,Burkina Faso,Capital goods,1542.9096,0.22
 2018-2020,Burkina Faso,Consumption goods n.e.s,374.77200000000005,0.08
 2018-2020,Burkina Faso,Food and beverages,8337.9573,1.5599999999999998
 2018-2020,Burkina Faso,Fuels and Lubricants,2.7373,0.0
@@ -66,8 +61,7 @@ year,importer_name,target,value,share
 2018-2020,Burkina Faso,Sunflower oil,30.639,13.92
 2018-2020,Burkina Faso,Transport equipment,6192.8386,1.56
 2018-2020,Burkina Faso,Wheat,11220.5954,38.33
-2018-2020,Burundi,Capital goods,1.7183,0.01
-2018-2020,Burundi,Capital goods ,89.64099999999999,0.13
+2018-2020,Burundi,Capital goods,91.3594,0.09
 2018-2020,Burundi,Consumption goods n.e.s,8.3077,0.01
 2018-2020,Burundi,Food and beverages,16.9364,0.02
 2018-2020,Burundi,Industrial Supplies,2531.2963,1.27
@@ -75,15 +69,14 @@ year,importer_name,target,value,share
 2018-2020,Burundi,Sunflower oil,17.1333,4.24
 2018-2020,Burundi,Transport equipment,509.2113,0.6200000000000001
 2018-2020,Burundi,Wheat,6607.2937,33.87
-2018-2020,Cabo Verde,Capital goods ,1.0406,0.0
+2018-2020,Cabo Verde,Capital goods,1.0406,0.0
 2018-2020,Cabo Verde,Consumption goods n.e.s,0.7403,0.0
 2018-2020,Cabo Verde,Food and beverages,440.80370000000005,0.19
 2018-2020,Cabo Verde,Industrial Supplies,78.47529999999999,0.04
 2018-2020,Cabo Verde,Petroleum oils,980.441,0.63
 2018-2020,Cabo Verde,Transport equipment,11.9187,0.01
 2018-2020,Cabo Verde,Wheat,2886.1873,57.0
-2018-2020,Cameroon,Capital goods,130.3417,0.04
-2018-2020,Cameroon,Capital goods ,319.8777,0.04
+2018-2020,Cameroon,Capital goods,450.2193,0.04
 2018-2020,Cameroon,Consumption goods n.e.s,11.3326,0.0
 2018-2020,Cameroon,Food and beverages,1825.5034,0.23
 2018-2020,Cameroon,Fuels and Lubricants,3.3636,0.1
@@ -94,8 +87,7 @@ year,importer_name,target,value,share
 2018-2020,Cameroon,Sunflower oil,8.989,2.54
 2018-2020,Cameroon,Transport equipment,14.481,0.0
 2018-2020,Cameroon,Wheat,82640.877,49.5
-2018-2020,Central African Republic,Capital goods,20.7813,0.13
-2018-2020,Central African Republic,Capital goods ,192.6817,0.42
+2018-2020,Central African Republic,Capital goods,213.46300000000002,0.35000000000000003
 2018-2020,Central African Republic,Coal,0.118,100.0
 2018-2020,Central African Republic,Consumption goods n.e.s,16.939,0.04
 2018-2020,Central African Republic,Food and beverages,330.2,0.73
@@ -105,20 +97,17 @@ year,importer_name,target,value,share
 2018-2020,Central African Republic,Steel and Iron,0.0367,0.0
 2018-2020,Central African Republic,Sunflower oil,9.1477,3.31
 2018-2020,Central African Republic,Transport equipment,461.139,1.96
-2018-2020,Chad,Capital goods,23.9513,0.03
-2018-2020,Chad,Capital goods ,318.71070000000003,0.18
+2018-2020,Chad,Capital goods,342.66200000000003,0.13
 2018-2020,Chad,Consumption goods n.e.s,2.291,0.0
 2018-2020,Chad,Food and beverages,260.6114,0.29000000000000004
 2018-2020,Chad,Industrial Supplies,639.4674,0.3
 2018-2020,Chad,Transport equipment,5529.1523,4.6
-2018-2020,Comoros,Capital goods,1.198,0.01
-2018-2020,Comoros,Capital goods ,0.002,0.0
+2018-2020,Comoros,Capital goods,1.2,0.0
 2018-2020,Comoros,Consumption goods n.e.s,3.869,0.01
 2018-2020,Comoros,Food and beverages,858.8777,0.68
 2018-2020,Comoros,Industrial Supplies,30.66,0.04
 2018-2020,Comoros,Sunflower oil,9.271,4.78
-2018-2020,Congo Republic,Capital goods,196.001,0.09999999999999999
-2018-2020,Congo Republic,Capital goods ,846.3122999999999,0.14
+2018-2020,Congo Republic,Capital goods,1042.3134,0.13
 2018-2020,Congo Republic,Coal,1156.7237,5.73
 2018-2020,Congo Republic,Consumption goods n.e.s,110.74699999999999,0.04
 2018-2020,Congo Republic,Food and beverages,5647.2507,0.9400000000000001
@@ -131,8 +120,7 @@ year,importer_name,target,value,share
 2018-2020,Congo Republic,Transport equipment,12860.355,2.18
 2018-2020,Congo Republic,"Weapons, Firearms, Ammunition",0.4747,0.01
 2018-2020,Congo Republic,Wheat,34662.331,63.44
-2018-2020,Cote d'Ivoire,Capital goods,735.8386999999999,0.15
-2018-2020,Cote d'Ivoire,Capital goods ,2050.8527,0.15
+2018-2020,Cote d'Ivoire,Capital goods,2786.6913,0.15
 2018-2020,Cote d'Ivoire,Consumption goods n.e.s,610.854,0.05
 2018-2020,Cote d'Ivoire,Food and beverages,14636.7827,0.7
 2018-2020,Cote d'Ivoire,Fuels and Lubricants,0.395,0.01
@@ -144,8 +132,7 @@ year,importer_name,target,value,share
 2018-2020,Cote d'Ivoire,Sunflower oil,4755.3907,63.269999999999996
 2018-2020,Cote d'Ivoire,Transport equipment,991.61,0.11
 2018-2020,Cote d'Ivoire,Wheat,27974.927000000003,17.31
-2018-2020,DR Congo,Capital goods,75.7753,0.01
-2018-2020,DR Congo,Capital goods ,701.9797000000001,0.07
+2018-2020,DR Congo,Capital goods,777.755,0.04
 2018-2020,DR Congo,Consumption goods n.e.s,102.3247,0.01
 2018-2020,DR Congo,Food and beverages,4199.2563,0.35
 2018-2020,DR Congo,Fuels and Lubricants,4.8063,0.01
@@ -156,8 +143,7 @@ year,importer_name,target,value,share
 2018-2020,DR Congo,Transport equipment,778.717,0.12
 2018-2020,DR Congo,"Weapons, Firearms, Ammunition",0.665,0.02
 2018-2020,DR Congo,Wheat,31196.4487,62.32
-2018-2020,Djibouti,Capital goods,6.875699999999999,0.01
-2018-2020,Djibouti,Capital goods ,36.7064,0.0
+2018-2020,Djibouti,Capital goods,43.582,0.0
 2018-2020,Djibouti,Coal,1043.7383,1.96
 2018-2020,Djibouti,Consumption goods n.e.s,63.669,0.01
 2018-2020,Djibouti,Food and beverages,2196.7394,0.3
@@ -170,8 +156,7 @@ year,importer_name,target,value,share
 2018-2020,Djibouti,Transport equipment,110.83500000000001,0.02
 2018-2020,Djibouti,Wheat,13157.931700000001,75.99000000000001
 2018-2020,Egypt,Barley,1387.8946999999998,94.54
-2018-2020,Egypt,Capital goods,53062.0406,1.11
-2018-2020,Egypt,Capital goods ,201565.2377,1.79
+2018-2020,Egypt,Capital goods,254627.27829999998,1.59
 2018-2020,Egypt,Coal,21377.8633,6.73
 2018-2020,Egypt,Consumption goods n.e.s,50995.621,0.99
 2018-2020,Egypt,Food and beverages,30737.9933,0.44
@@ -186,8 +171,7 @@ year,importer_name,target,value,share
 2018-2020,Egypt,Transport equipment,152052.40459999998,2.23
 2018-2020,Egypt,"Weapons, Firearms, Ammunition",561.0217,0.82
 2018-2020,Egypt,Wheat,1858009.686,78.22
-2018-2020,Equatorial Guinea,Capital goods,430.349,0.44
-2018-2020,Equatorial Guinea,Capital goods ,138.0763,0.09999999999999999
+2018-2020,Equatorial Guinea,Capital goods,568.4253,0.24
 2018-2020,Equatorial Guinea,Consumption goods n.e.s,53.5456,0.060000000000000005
 2018-2020,Equatorial Guinea,Food and beverages,630.3383,0.27
 2018-2020,Equatorial Guinea,Fuels and Lubricants,0.0267,0.0
@@ -195,13 +179,11 @@ year,importer_name,target,value,share
 2018-2020,Equatorial Guinea,Petroleum oils,1.1513,0.01
 2018-2020,Equatorial Guinea,Steel and Iron,0.855,0.0
 2018-2020,Equatorial Guinea,Transport equipment,90.458,0.08
-2018-2020,Eritrea,Capital goods,0.0303,0.0
-2018-2020,Eritrea,Capital goods ,2087.7093,3.46
+2018-2020,Eritrea,Capital goods,2087.7396,2.34
 2018-2020,Eritrea,Food and beverages,529.5973,1.16
 2018-2020,Eritrea,Industrial Supplies,143.9606,0.25
 2018-2020,Eritrea,Wheat,1900.3417,99.94
-2018-2020,Eswatini,Capital goods,8.7857,0.01
-2018-2020,Eswatini,Capital goods ,2.1923,0.0
+2018-2020,Eswatini,Capital goods,10.978,0.0
 2018-2020,Eswatini,Consumption goods n.e.s,5.859,0.0
 2018-2020,Eswatini,Food and beverages,11.3447,0.0
 2018-2020,Eswatini,Industrial Supplies,23.4127,0.0
@@ -209,8 +191,7 @@ year,importer_name,target,value,share
 2018-2020,Eswatini,Transport equipment,6.579,0.0
 2018-2020,Eswatini,Wheat,2458.7324000000003,18.24
 2018-2020,Ethiopia,Barley,60.5753,1.71
-2018-2020,Ethiopia,Capital goods,2770.0856,0.52
-2018-2020,Ethiopia,Capital goods ,2995.272,0.17
+2018-2020,Ethiopia,Capital goods,5765.3576,0.26
 2018-2020,Ethiopia,Consumption goods n.e.s,468.044,0.03
 2018-2020,Ethiopia,Food and beverages,13713.8473,1.73
 2018-2020,Ethiopia,Fuels and Lubricants,3.2323,0.06
@@ -224,8 +205,7 @@ year,importer_name,target,value,share
 2018-2020,Ethiopia,Wheat,87490.87599999999,32.68
 2018-2020,French Southern Territories,Consumption goods n.e.s,0.0003,0.0
 2018-2020,French Southern Territories,Industrial Supplies,0.1907,0.0
-2018-2020,Gabon,Capital goods,267.4294,0.13
-2018-2020,Gabon,Capital goods ,731.5566,0.16
+2018-2020,Gabon,Capital goods,998.9860000000001,0.15
 2018-2020,Gabon,Consumption goods n.e.s,12.8027,0.0
 2018-2020,Gabon,Food and beverages,2661.256,0.5700000000000001
 2018-2020,Gabon,Industrial Supplies,1363.773,0.32
@@ -235,16 +215,14 @@ year,importer_name,target,value,share
 2018-2020,Gabon,Sunflower oil,652.6537,35.66
 2018-2020,Gabon,Transport equipment,0.341,0.0
 2018-2020,Gabon,Wheat,2107.5653,8.88
-2018-2020,Gambia,Capital goods,5.5723,0.02
-2018-2020,Gambia,Capital goods ,22.0206,0.04
+2018-2020,Gambia,Capital goods,27.593,0.03
 2018-2020,Gambia,Consumption goods n.e.s,7.0297,0.0
 2018-2020,Gambia,Food and beverages,3009.5714,0.77
 2018-2020,Gambia,Industrial Supplies,79.5764,0.02
 2018-2020,Gambia,Steel and Iron,3704.6537,7.43
 2018-2020,Gambia,Sunflower oil,193.8827,16.27
 2018-2020,Gambia,Wheat,6841.7663,53.69
-2018-2020,Ghana,Capital goods,796.2842999999999,0.09000000000000001
-2018-2020,Ghana,Capital goods ,640.3434,0.03
+2018-2020,Ghana,Capital goods,1436.6277,0.05
 2018-2020,Ghana,Coal,244.0767,3.4
 2018-2020,Ghana,Consumption goods n.e.s,633.1604,0.03
 2018-2020,Ghana,Food and beverages,29803.654,1.2599999999999998
@@ -257,8 +235,7 @@ year,importer_name,target,value,share
 2018-2020,Ghana,Sunflower oil,5854.592000000001,40.669999999999995
 2018-2020,Ghana,Transport equipment,1341.8913,0.06999999999999999
 2018-2020,Ghana,Wheat,52242.3107,27.79
-2018-2020,Guinea,Capital goods,4017.6117000000004,1.74
-2018-2020,Guinea,Capital goods ,8847.3184,1.45
+2018-2020,Guinea,Capital goods,12864.93,1.53
 2018-2020,Guinea,Consumption goods n.e.s,382.22159999999997,0.05
 2018-2020,Guinea,Food and beverages,2529.8904,0.35
 2018-2020,Guinea,Fuels and Lubricants,4.28,0.19
@@ -271,8 +248,7 @@ year,importer_name,target,value,share
 2018-2020,Guinea,Wheat,26734.9477,33.64
 2018-2020,Guinea-Bissau,Food and beverages,57.164,0.05
 2018-2020,Guinea-Bissau,Industrial Supplies,33.7883,0.07
-2018-2020,Kenya,Capital goods,328.46799999999996,0.04
-2018-2020,Kenya,Capital goods ,1425.672,0.06
+2018-2020,Kenya,Capital goods,1754.14,0.06
 2018-2020,Kenya,Consumption goods n.e.s,280.18399999999997,0.01
 2018-2020,Kenya,Food and beverages,10861.3533,0.56
 2018-2020,Kenya,Fuels and Lubricants,7.263,0.02
@@ -285,8 +261,7 @@ year,importer_name,target,value,share
 2018-2020,Kenya,Transport equipment,5822.015,0.27
 2018-2020,Kenya,"Weapons, Firearms, Ammunition",1.8497,0.01
 2018-2020,Kenya,Wheat,149700.14500000002,37.7
-2018-2020,Liberia,Capital goods,30.231,0.01
-2018-2020,Liberia,Capital goods ,46.3074,0.01
+2018-2020,Liberia,Capital goods,76.5384,0.01
 2018-2020,Liberia,Consumption goods n.e.s,4.2353,0.0
 2018-2020,Liberia,Food and beverages,3267.9152999999997,1.06
 2018-2020,Liberia,Fuels and Lubricants,0.2233,0.01
@@ -299,8 +274,7 @@ year,importer_name,target,value,share
 2018-2020,Liberia,Transport equipment,1426.94,0.03
 2018-2020,Liberia,Wheat,2153.5387,26.23
 2018-2020,Libya,Barley,61569.757,52.84
-2018-2020,Libya,Capital goods,305.4513,0.07
-2018-2020,Libya,Capital goods ,677.2479999999999,0.04
+2018-2020,Libya,Capital goods,982.6994,0.05
 2018-2020,Libya,Coal,268.4297,97.41
 2018-2020,Libya,Consumption goods n.e.s,1436.706,0.05
 2018-2020,Libya,Food and beverages,8551.4677,0.44
@@ -313,8 +287,7 @@ year,importer_name,target,value,share
 2018-2020,Libya,Sunflower oil,6323.8737,16.94
 2018-2020,Libya,Transport equipment,1786.2854000000002,0.13999999999999999
 2018-2020,Libya,Wheat,85272.33499999999,46.78
-2018-2020,Madagascar,Capital goods,70.4897,0.04
-2018-2020,Madagascar,Capital goods ,4111.0547,1.18
+2018-2020,Madagascar,Capital goods,4181.5443,0.8200000000000001
 2018-2020,Madagascar,Consumption goods n.e.s,112.51639999999999,0.02
 2018-2020,Madagascar,Food and beverages,1613.6844,0.27
 2018-2020,Madagascar,Fuels and Lubricants,0.028,0.0
@@ -327,8 +300,7 @@ year,importer_name,target,value,share
 2018-2020,Madagascar,Transport equipment,700.3163000000001,0.22999999999999998
 2018-2020,Madagascar,"Weapons, Firearms, Ammunition",2.6247,0.13
 2018-2020,Madagascar,Wheat,9571.4637,59.36
-2018-2020,Malawi,Capital goods,23.871000000000002,0.03
-2018-2020,Malawi,Capital goods ,147.9203,0.05
+2018-2020,Malawi,Capital goods,171.79129999999998,0.04
 2018-2020,Malawi,Consumption goods n.e.s,5.8247,0.0
 2018-2020,Malawi,Food and beverages,747.0503,0.42000000000000004
 2018-2020,Malawi,Industrial Supplies,999.6943,0.11
@@ -337,8 +309,7 @@ year,importer_name,target,value,share
 2018-2020,Malawi,Sunflower oil,116.806,6.83
 2018-2020,Malawi,Transport equipment,0.9793000000000001,0.0
 2018-2020,Malawi,Wheat,17059.186700000002,46.25
-2018-2020,Mali,Capital goods,679.9814,0.28
-2018-2020,Mali,Capital goods ,2531.7443000000003,0.53
+2018-2020,Mali,Capital goods,3211.7257,0.44
 2018-2020,Mali,Consumption goods n.e.s,100.181,0.02
 2018-2020,Mali,Food and beverages,1484.319,0.24
 2018-2020,Mali,Fuels and Lubricants,7.5204,0.02
@@ -350,8 +321,7 @@ year,importer_name,target,value,share
 2018-2020,Mali,Transport equipment,14920.8273,2.62
 2018-2020,Mali,"Weapons, Firearms, Ammunition",141.529,0.64
 2018-2020,Mali,Wheat,26913.5763,35.199999999999996
-2018-2020,Mauritania,Capital goods,446.7804,0.23
-2018-2020,Mauritania,Capital goods ,108.194,0.03
+2018-2020,Mauritania,Capital goods,554.9744000000001,0.11
 2018-2020,Mauritania,Food and beverages,2723.6023,0.38
 2018-2020,Mauritania,Industrial Supplies,9168.1174,1.1
 2018-2020,Mauritania,Maize,154.875,11.55
@@ -360,8 +330,7 @@ year,importer_name,target,value,share
 2018-2020,Mauritania,Sunflower oil,237.9997,22.3
 2018-2020,Mauritania,Transport equipment,305.47229999999996,0.09999999999999999
 2018-2020,Mauritania,Wheat,24428.1833,22.88
-2018-2020,Mauritius,Capital goods,24.436700000000002,0.02
-2018-2020,Mauritius,Capital goods ,452.509,0.07
+2018-2020,Mauritius,Capital goods,476.9457,0.06
 2018-2020,Mauritius,Consumption goods n.e.s,405.55240000000003,0.05
 2018-2020,Mauritius,Food and beverages,2390.9513,0.24000000000000002
 2018-2020,Mauritius,Industrial Supplies,3134.189,0.24000000000000002
@@ -370,8 +339,7 @@ year,importer_name,target,value,share
 2018-2020,Mauritius,Sunflower oil,479.2807,6.22
 2018-2020,Mauritius,Transport equipment,64.3704,0.01
 2018-2020,Morocco,Barley,10362.6943,9.0
-2018-2020,Morocco,Capital goods,3001.0969999999998,0.09
-2018-2020,Morocco,Capital goods ,4965.3834,0.1
+2018-2020,Morocco,Capital goods,7966.4803,0.09
 2018-2020,Morocco,Coal,662550.701,56.77
 2018-2020,Morocco,Consumption goods n.e.s,9570.611,0.23
 2018-2020,Morocco,Food and beverages,24040.773,0.75
@@ -387,8 +355,7 @@ year,importer_name,target,value,share
 2018-2020,Morocco,Transport equipment,1538.958,0.02
 2018-2020,Morocco,"Weapons, Firearms, Ammunition",589.6007,1.04
 2018-2020,Morocco,Wheat,317786.1307,30.6
-2018-2020,Mozambique,Capital goods,110.4393,0.02
-2018-2020,Mozambique,Capital goods ,215.9913,0.02
+2018-2020,Mozambique,Capital goods,326.4306,0.03
 2018-2020,Mozambique,Consumption goods n.e.s,85.8717,0.01
 2018-2020,Mozambique,Food and beverages,2173.3379999999997,0.16999999999999998
 2018-2020,Mozambique,Fuels and Lubricants,2.4657,0.0
@@ -399,8 +366,7 @@ year,importer_name,target,value,share
 2018-2020,Mozambique,Sunflower oil,2188.1423,7.96
 2018-2020,Mozambique,Transport equipment,334.7047,0.05
 2018-2020,Mozambique,Wheat,75398.5267,40.96
-2018-2020,Namibia,Capital goods,107.1894,0.03
-2018-2020,Namibia,Capital goods ,334.55929999999995,0.05
+2018-2020,Namibia,Capital goods,441.7487,0.05
 2018-2020,Namibia,Consumption goods n.e.s,389.73199999999997,0.05
 2018-2020,Namibia,Food and beverages,4272.8883000000005,0.6200000000000001
 2018-2020,Namibia,Fuels and Lubricants,1.1363,0.0
@@ -411,8 +377,7 @@ year,importer_name,target,value,share
 2018-2020,Namibia,Transport equipment,320.9403,0.04
 2018-2020,Namibia,"Weapons, Firearms, Ammunition",31.2377,0.45
 2018-2020,Namibia,Wheat,9976.4637,39.6
-2018-2020,Niger,Capital goods,115.2813,0.12000000000000001
-2018-2020,Niger,Capital goods ,4216.5033,1.44
+2018-2020,Niger,Capital goods,4331.7847,1.1
 2018-2020,Niger,Consumption goods n.e.s,28.3146,0.01
 2018-2020,Niger,Food and beverages,1049.0933,0.16
 2018-2020,Niger,Gas,443.2107,42.11
@@ -424,8 +389,7 @@ year,importer_name,target,value,share
 2018-2020,Niger,Sunflower oil,8.2397,12.41
 2018-2020,Niger,Transport equipment,174.0343,0.05
 2018-2020,Niger,"Weapons, Firearms, Ammunition",2.8517,0.0
-2018-2020,Nigeria,Capital goods,991.618,0.05
-2018-2020,Nigeria,Capital goods ,3794.8543,0.06999999999999999
+2018-2020,Nigeria,Capital goods,4786.472299999999,0.06
 2018-2020,Nigeria,Consumption goods n.e.s,158.31130000000002,0.0
 2018-2020,Nigeria,Food and beverages,14209.220000000001,0.45999999999999996
 2018-2020,Nigeria,Fuels and Lubricants,3.5643,0.02
@@ -437,8 +401,7 @@ year,importer_name,target,value,share
 2018-2020,Nigeria,Sunflower oil,41.613,3.26
 2018-2020,Nigeria,Transport equipment,921.48,0.02
 2018-2020,Nigeria,Wheat,263811.684,23.21
-2018-2020,Rwanda,Capital goods,30.5307,0.02
-2018-2020,Rwanda,Capital goods ,402.8577,0.12
+2018-2020,Rwanda,Capital goods,433.3883,0.09
 2018-2020,Rwanda,Consumption goods n.e.s,52.970699999999994,0.02
 2018-2020,Rwanda,Food and beverages,2389.178,0.7200000000000001
 2018-2020,Rwanda,Industrial Supplies,6025.7746,0.98
@@ -450,8 +413,7 @@ year,importer_name,target,value,share
 2018-2020,Rwanda,Wheat,16770.5167,63.54
 2018-2020,Sao Tome and Principe,Food and beverages,3.709,0.01
 2018-2020,Sao Tome and Principe,Industrial Supplies,8.051,0.04
-2018-2020,Senegal,Capital goods,558.5360000000001,0.12
-2018-2020,Senegal,Capital goods ,555.6557,0.05
+2018-2020,Senegal,Capital goods,1114.1916,0.06999999999999999
 2018-2020,Senegal,Coal,24650.11,26.27
 2018-2020,Senegal,Consumption goods n.e.s,426.233,0.03
 2018-2020,Senegal,Food and beverages,2099.0893,0.12
@@ -463,8 +425,7 @@ year,importer_name,target,value,share
 2018-2020,Senegal,Sunflower oil,4964.264,26.92
 2018-2020,Senegal,Transport equipment,808.087,0.08
 2018-2020,Senegal,Wheat,106388.2643,60.44
-2018-2020,Seychelles,Capital goods,62.126,0.13
-2018-2020,Seychelles,Capital goods ,147.5416,0.11
+2018-2020,Seychelles,Capital goods,209.66770000000002,0.12000000000000001
 2018-2020,Seychelles,Consumption goods n.e.s,781.9967,0.65
 2018-2020,Seychelles,Food and beverages,1639.633,0.58
 2018-2020,Seychelles,Fuels and Lubricants,0.1293,0.03
@@ -474,8 +435,7 @@ year,importer_name,target,value,share
 2018-2020,Seychelles,Steel and Iron,49.3723,0.19
 2018-2020,Seychelles,Sunflower oil,289.1076,5.67
 2018-2020,Seychelles,Transport equipment,841.8204000000001,0.18
-2018-2020,Sierra Leone,Capital goods,105.1756,0.18
-2018-2020,Sierra Leone,Capital goods ,227.87969999999999,0.17
+2018-2020,Sierra Leone,Capital goods,333.0553,0.18000000000000002
 2018-2020,Sierra Leone,Consumption goods n.e.s,14.350700000000002,0.01
 2018-2020,Sierra Leone,Food and beverages,1735.3763999999999,0.54
 2018-2020,Sierra Leone,Fuels and Lubricants,0.2717,0.13
@@ -484,8 +444,7 @@ year,importer_name,target,value,share
 2018-2020,Sierra Leone,Potash,84.8293,9.29
 2018-2020,Sierra Leone,Sunflower oil,17.3617,19.29
 2018-2020,Sierra Leone,Transport equipment,589.6936,0.57
-2018-2020,Somalia,Capital goods,102.0,0.25
-2018-2020,Somalia,Capital goods ,165.8133,0.05
+2018-2020,Somalia,Capital goods,267.8133,0.08
 2018-2020,Somalia,Consumption goods n.e.s,64.2644,0.01
 2018-2020,Somalia,Food and beverages,2533.8857,0.21000000000000002
 2018-2020,Somalia,Fuels and Lubricants,3.132,0.59
@@ -496,8 +455,7 @@ year,importer_name,target,value,share
 2018-2020,Somalia,Transport equipment,507.477,0.23
 2018-2020,Somalia,Wheat,6850.9133999999995,67.96000000000001
 2018-2020,South Africa,Barley,19.5253,0.44
-2018-2020,South Africa,Capital goods,7186.8717,0.13
-2018-2020,South Africa,Capital goods ,11140.508,0.08
+2018-2020,South Africa,Capital goods,18327.3796,0.1
 2018-2020,South Africa,Coal,8472.1687,2.29
 2018-2020,South Africa,Consumption goods n.e.s,4354.3354,0.05
 2018-2020,South Africa,Food and beverages,17748.408000000003,0.33999999999999997
@@ -512,8 +470,7 @@ year,importer_name,target,value,share
 2018-2020,South Africa,Transport equipment,5244.8547,0.05
 2018-2020,South Africa,"Weapons, Firearms, Ammunition",448.70000000000005,0.8
 2018-2020,South Africa,Wheat,132717.908,30.94
-2018-2020,South Sudan,Capital goods,982.3417000000001,2.91
-2018-2020,South Sudan,Capital goods ,425.913,0.55
+2018-2020,South Sudan,Capital goods,1408.2547000000002,1.26
 2018-2020,South Sudan,Consumption goods n.e.s,1.2284000000000002,0.0
 2018-2020,South Sudan,Food and beverages,460.7973,0.15
 2018-2020,South Sudan,Fuels and Lubricants,21.359,5.4
@@ -522,8 +479,7 @@ year,importer_name,target,value,share
 2018-2020,South Sudan,Steel and Iron,0.055,0.0
 2018-2020,South Sudan,Sunflower oil,25.3603,4.08
 2018-2020,South Sudan,Transport equipment,722.8217,0.38
-2018-2020,Sudan,Capital goods,1407.7985999999999,0.41
-2018-2020,Sudan,Capital goods ,5186.8736,0.47000000000000003
+2018-2020,Sudan,Capital goods,6594.6723999999995,0.44999999999999996
 2018-2020,Sudan,Consumption goods n.e.s,192.416,0.01
 2018-2020,Sudan,Food and beverages,5990.759599999999,0.5
 2018-2020,Sudan,Fuels and Lubricants,45.5947,2.35
@@ -538,8 +494,7 @@ year,importer_name,target,value,share
 2018-2020,Sudan,Transport equipment,7012.324699999999,0.8400000000000001
 2018-2020,Sudan,"Weapons, Firearms, Ammunition",596.5553,6.039999999999999
 2018-2020,Sudan,Wheat,828374.435,79.1
-2018-2020,Tanzania,Capital goods,238.09140000000002,0.05
-2018-2020,Tanzania,Capital goods ,576.9132999999999,0.04
+2018-2020,Tanzania,Capital goods,815.0047,0.04
 2018-2020,Tanzania,Consumption goods n.e.s,110.3017,0.01
 2018-2020,Tanzania,Food and beverages,2922.5324,0.36
 2018-2020,Tanzania,Fuels and Lubricants,0.0003,0.0
@@ -552,8 +507,7 @@ year,importer_name,target,value,share
 2018-2020,Tanzania,Transport equipment,127.0186,0.01
 2018-2020,Tanzania,"Weapons, Firearms, Ammunition",1.8157,0.28
 2018-2020,Tanzania,Wheat,139783.25029999999,72.85000000000001
-2018-2020,Togo,Capital goods,17.0804,0.02
-2018-2020,Togo,Capital goods ,31.674,0.0
+2018-2020,Togo,Capital goods,48.7543,0.0
 2018-2020,Togo,Coal,6980.939,16.53
 2018-2020,Togo,Consumption goods n.e.s,1.6697,0.0
 2018-2020,Togo,Food and beverages,3802.0624000000003,0.37
@@ -567,8 +521,7 @@ year,importer_name,target,value,share
 2018-2020,Togo,"Weapons, Firearms, Ammunition",9.9843,0.15
 2018-2020,Togo,Wheat,11713.0247,49.98
 2018-2020,Tunisia,Barley,46348.7304,33.95
-2018-2020,Tunisia,Capital goods,890.8853,0.04
-2018-2020,Tunisia,Capital goods ,1820.319,0.08
+2018-2020,Tunisia,Capital goods,2711.2043,0.06
 2018-2020,Tunisia,Coal,53.474,9.35
 2018-2020,Tunisia,Consumption goods n.e.s,546.193,0.03
 2018-2020,Tunisia,Food and beverages,15219.2366,1.33
@@ -583,8 +536,7 @@ year,importer_name,target,value,share
 2018-2020,Tunisia,Transport equipment,1494.891,0.08
 2018-2020,Tunisia,"Weapons, Firearms, Ammunition",8.6537,0.03
 2018-2020,Tunisia,Wheat,234638.52000000002,53.550000000000004
-2018-2020,Uganda,Capital goods,435.1786,0.2
-2018-2020,Uganda,Capital goods ,3516.9044000000004,0.44
+2018-2020,Uganda,Capital goods,3952.083,0.38
 2018-2020,Uganda,Coal,0.0243,0.0
 2018-2020,Uganda,Consumption goods n.e.s,690.8393000000001,0.09000000000000001
 2018-2020,Uganda,Food and beverages,655.4467,0.09
@@ -597,8 +549,7 @@ year,importer_name,target,value,share
 2018-2020,Uganda,Sunflower oil,331.031,34.18
 2018-2020,Uganda,Transport equipment,11232.181700000001,1.6199999999999999
 2018-2020,Uganda,Wheat,58975.29,51.08
-2018-2020,Zambia,Capital goods,518.2513,0.09
-2018-2020,Zambia,Capital goods ,327.8503,0.04
+2018-2020,Zambia,Capital goods,846.1017,0.05
 2018-2020,Zambia,Consumption goods n.e.s,113.1834,0.02
 2018-2020,Zambia,Food and beverages,1294.7467,0.26
 2018-2020,Zambia,Goods not specified,674.0,18.77
@@ -609,8 +560,7 @@ year,importer_name,target,value,share
 2018-2020,Zambia,Transport equipment,19357.018399999997,2.38
 2018-2020,Zambia,"Weapons, Firearms, Ammunition",15.694,0.04
 2018-2020,Zambia,Wheat,612.1943,5.34
-2018-2020,Zimbabwe,Capital goods,11.597,0.0
-2018-2020,Zimbabwe,Capital goods ,437.86,0.06
+2018-2020,Zimbabwe,Capital goods,449.457,0.04
 2018-2020,Zimbabwe,Consumption goods n.e.s,367.593,0.08
 2018-2020,Zimbabwe,Food and beverages,447.61330000000004,0.11
 2018-2020,Zimbabwe,Industrial Supplies,3619.324,0.26

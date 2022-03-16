@@ -110,6 +110,26 @@ def filter_commodity(data: pd.DataFrame, commodity: str) -> pd.DataFrame:
     )
 
 
+def commodity_explorer(data: pd.DataFrame) -> pd.DataFrame:
+    """For a chart to explore commodities by country"""
+
+    return (
+        data.assign(value=lambda d: d.value / 1e3)
+        .melt(
+            id_vars=["year", "importer_name", "target"],
+            value_vars=["value", "share"],
+            var_name="indicator",
+            value_name="value",
+        )
+        .replace({"indicator": {"value": "USD (million)", "share": "Share"}})
+        .pivot_table(
+            index=["year", "importer_name", "indicator"],
+            columns="target",
+            values="value",
+        )
+    )
+
+
 def flourish_story() -> None:
     """Pipeline for the story. This takes the individual steps for the charts and saves
     the results as CSV files"""
@@ -144,6 +164,11 @@ def flourish_story() -> None:
     # Russia and Ukraine (together) to African countries by category
     afr_cat = russia_ukraine_categories_country(data)
     afr_cat.to_csv(paths.output + r"/rus_ukr_categories_country.csv", index=False)
+
+    # Explorer
+
+    explore = commodity_explorer(afr_cat)
+    explore.to_csv(paths.output + r"/commodity_explore_bar.csv")
 
     # SLIDE 14 : wheat
     wheat = filter_commodity(afr_cat, "Wheat")
