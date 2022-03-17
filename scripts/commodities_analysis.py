@@ -57,9 +57,15 @@ def create_commodity_chart_data(df: pd.DataFrame, start_date: str) -> None:
     print("Successfully created commodity chart")
 
 
-if __name__ == "__main__":
+def update_data() -> None:
+    """Pipeline to update the data"""
     # Get the commodity data
     data = get_commodity_prices(commodities=COMMODITY_LIST)
 
     # create chart csv
     create_commodity_chart_data(df=data, start_date="2018-01-01")
+
+
+if __name__ == "__main__":
+
+    update_data()
