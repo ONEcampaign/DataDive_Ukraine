@@ -8,6 +8,7 @@ from scripts.config import paths
 from scripts.read_trade_data import world_trade_all_importers, world_trade_africa
 
 from scripts import trade_common as tc
+from scripts.debt_analysis import debt_pipeline
 
 # ====================   PARAMETERS  ====================
 
@@ -110,7 +111,7 @@ def filter_commodity(data: pd.DataFrame, commodity: str) -> pd.DataFrame:
     )
 
 
-def commodity_explorer(data: pd.DataFrame) -> pd.DataFrame:
+def commodity_bar_explorer(data: pd.DataFrame) -> pd.DataFrame:
     """For a chart to explore commodities by country"""
 
     return (
@@ -128,6 +129,67 @@ def commodity_explorer(data: pd.DataFrame) -> pd.DataFrame:
             values="value",
         )
     )
+
+
+def income_levels():
+    """Return income level dictionary"""
+    file = paths.raw_data + r"/income_levels.csv"
+    return pd.read_csv(file, na_values=None, index_col="Code").T.to_dict("records")[0]
+
+
+def flourish_commodity_explorer() -> None:
+
+    import country_converter as coco
+
+    # Debt
+    debt_service = debt_pipeline("service", 2022, 2022)
+    debt_stocks = debt_pipeline("stocks", 2020, 2020)
+
+    # UN Vote
+    un_vote = pd.read_excel(
+        paths.raw_data + r"/resolution_vote.xlsx", sheet_name="detail"
+    )
+
+    # Trade
+    trade = (
+        pd.read_csv(paths.output + r"/rus_ukr_categories_country.csv")
+        .assign(
+            value=lambda d: d.value / 1e3,
+            iso_code=lambda d: coco.convert(d.importer_name, to="ISO3"),
+        )
+        .pivot_table(index=["iso_code", "year"], columns="target", values="value")
+        .reset_index(drop=False)
+    )
+
+    explorer = (
+        trade.merge(
+            un_vote.filter(["vote", "iso_code", "population"]),
+            on="iso_code",
+            how="left",
+        )
+        .merge(
+            debt_stocks.rename(columns={"value": "Debt Stocks"})
+            .groupby("iso_code", as_index=False)["Debt Stocks"]
+            .sum(),
+            on="iso_code",
+            how="outer",
+        )
+        .merge(
+            debt_service.rename(columns={"value": "Debt Service"})
+            .groupby("iso_code", as_index=False)["Debt Service"]
+            .sum(),
+            on="iso_code",
+            how="outer",
+        )
+        .assign(
+            income_level=lambda d: d.iso_code.map(income_levels()),
+            gdp=lambda d: d.iso_code.map(tc.gdp_dict()),
+            name=lambda d: coco.convert(d.iso_code, to="short_name"),
+        )
+        .dropna(subset=["income_level"])
+    )
+
+    explorer.to_clipboard(paths.output + r"/flourish_explorer.csv")
 
 
 def flourish_story() -> None:
@@ -166,8 +228,7 @@ def flourish_story() -> None:
     afr_cat.to_csv(paths.output + r"/rus_ukr_categories_country.csv", index=False)
 
     # Explorer
-
-    explore = commodity_explorer(afr_cat)
+    explore = commodity_bar_explorer(afr_cat)
     explore.to_csv(paths.output + r"/commodity_explore_bar.csv")
 
     # SLIDE 14 : wheat
@@ -179,4 +240,5 @@ def flourish_story() -> None:
 
 
 if __name__ == "__main__":
-    flourish_story()
+    # flourish_story()
+    pass
