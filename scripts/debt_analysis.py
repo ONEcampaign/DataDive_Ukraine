@@ -21,7 +21,7 @@ def africa_dict() -> dict:
 def read_debt_data(indicator: str = "service") -> pd.DataFrame:
     """Read the provided IDS file for either 'service' or 'stocks'"""
 
-    return pd.read_csv(paths.raw_data + fr"/ids_{indicator}_raw.csv")
+    return pd.read_csv(paths.raw_data + rf"/ids_{indicator}_raw.csv")
 
 
 def filter_creditor_list(
@@ -124,7 +124,7 @@ def simplify_stocks(data: pd.DataFrame, to_total: bool = False) -> pd.DataFrame:
 def debt_pipeline(
     indicator: str = "stocks", start_year: int = 2020, end_year: int = 2021
 ) -> pd.DataFrame:
-    if indicator not in ['stocks', 'service']:
+    if indicator not in ["stocks", "service"]:
         raise ValueError(f"Invalid indicator: {indicator}")
 
     if indicator == "stocks":
