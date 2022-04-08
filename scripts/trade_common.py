@@ -139,7 +139,6 @@ def summarise_commodity_source_share(
         )
         .sort_values(["importer_name", "share"], ascending=(True, False))
         .assign(
-            value=lambda d: round(d.value / 1e3, 1),
             share=lambda d: round(100 * d.share, 1),
         )
         .reset_index(drop=True)
@@ -431,3 +430,5 @@ def exporter_to_categories_by_importer(
     )
 
     return df
+
+
