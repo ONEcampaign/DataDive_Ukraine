@@ -240,5 +240,5 @@ def flourish_story() -> None:
 
 
 if __name__ == "__main__":
-    # flourish_story()
+    flourish_story()
     pass
