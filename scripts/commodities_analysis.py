@@ -35,6 +35,7 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
         df.rename(columns={nan: "period"})
         .iloc[6:]
         .reset_index(drop=True)
+        .rename(columns={"Rice, Thai 5%": "Rice"})
         .filter(["period"] + commodities)
         .replace("..", nan)
         .rename(columns={"Wheat, US HRW": "Wheat"})

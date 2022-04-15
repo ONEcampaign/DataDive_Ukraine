@@ -5,6 +5,7 @@ as a pandas dataframe."""
 from scripts.config import paths
 import pandas as pd
 import country_converter as coco
+import numpy as np
 
 # ====================   PARAMETERS  ====================
 
@@ -49,10 +50,13 @@ def baci2feather(year: int = 2020) -> None:
                 "q": "quantity",
             }
         )
-        .drop(["quantity"], axis=1)
         .assign(
             exporter=lambda d: d.exporter.map(_countries_dict()),
             importer=lambda d: d.importer.map(_countries_dict()),
+        )
+        .assign(
+            quantity=lambda d: d.quantity.str.strip()
+            .replace("NA", np.nan)
         )
         .dropna(subset=["importer"])
         .assign(
@@ -67,6 +71,8 @@ def baci2feather(year: int = 2020) -> None:
                 "commodity_code": "str",  # Must be string so leading zeros are kept
                 "importer_continent": "str",
                 "exporter_continent": "str",
+                'quantity': "float64",
+                'value': "float64",
             }
         )
         .reset_index(drop=True)
@@ -127,3 +133,6 @@ if __name__ == "__main__":
 
     # Create feather files for years specified
     [baci2feather(year) for year in range(2018, 2021)]
+
+    df = pd.concat([read_baci(year) for year in range(2018, 2021)], ignore_index=True)
+    df.to_feather(f"{paths.raw_data}/baci_full.feather")
