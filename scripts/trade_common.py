@@ -430,5 +430,3 @@ def exporter_to_categories_by_importer(
     )
 
     return df
-
-

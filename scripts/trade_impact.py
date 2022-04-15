@@ -85,8 +85,8 @@ def _yearly_average(df, exclude: list = None):
 
 def read_filtered_grouped_data() -> pd.DataFrame:
     """STEP 1: Read data, filter for commodities of interest, add commodity
-     descriptions and aggregate by year, exporter, importer, and commodity.
-     This includes changing oils from mt to barrels"""
+    descriptions and aggregate by year, exporter, importer, and commodity.
+    This includes changing oils from mt to barrels"""
 
     df = (
         _read_raw_data()
@@ -120,11 +120,22 @@ def get_african_imports(df: pd.DataFrame) -> pd.DataFrame:
     return (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity",], as_index=False,
+            [
+                "year",
+                "importer",
+                "category",
+                "pink_sheet_commodity",
+            ],
+            as_index=False,
         )
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
-        .rename(columns={"quantity": "imports_quantity", "importer": "iso_code",})
+        .rename(
+            columns={
+                "quantity": "imports_quantity",
+                "importer": "iso_code",
+            }
+        )
     )
 
 
@@ -138,7 +149,12 @@ def get_african_exports(df: pd.DataFrame) -> pd.DataFrame:
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
         .assign(quantity=lambda d: -1 * d.quantity)
-        .rename(columns={"quantity": "exports_quantity", "exporter": "iso_code",})
+        .rename(
+            columns={
+                "quantity": "exports_quantity",
+                "exporter": "iso_code",
+            }
+        )
     )
 
 
@@ -189,7 +205,7 @@ def get_latest_prices_data(commodities_list: list) -> dict:
 def get_spending(
     df: pd.DataFrame, units_columns: list, prices: list[tuple[str, int]]
 ) -> pd.DataFrame:
-    """ Calculate spending for commodities for all variables,
+    """Calculate spending for commodities for all variables,
     based on average yearly prices and latest prices"""
 
     for column in units_columns:

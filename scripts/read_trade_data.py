@@ -54,10 +54,7 @@ def baci2feather(year: int = 2020) -> None:
             exporter=lambda d: d.exporter.map(_countries_dict()),
             importer=lambda d: d.importer.map(_countries_dict()),
         )
-        .assign(
-            quantity=lambda d: d.quantity.str.strip()
-            .replace("NA", np.nan)
-        )
+        .assign(quantity=lambda d: d.quantity.str.strip().replace("NA", np.nan))
         .dropna(subset=["importer"])
         .assign(
             importer_continent=lambda d: d.importer.map(_continents_dict()),
@@ -71,8 +68,8 @@ def baci2feather(year: int = 2020) -> None:
                 "commodity_code": "str",  # Must be string so leading zeros are kept
                 "importer_continent": "str",
                 "exporter_continent": "str",
-                'quantity': "float64",
-                'value': "float64",
+                "quantity": "float64",
+                "value": "float64",
             }
         )
         .reset_index(drop=True)
