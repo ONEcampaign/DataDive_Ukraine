@@ -3,7 +3,7 @@ cost of net imports."""
 
 import pandas as pd
 from scripts.config import paths
-import numpy as np
+from scripts.utils import add_population
 
 from scripts.commodities_analysis import get_commodity_prices
 
@@ -178,6 +178,14 @@ def get_net_imports(
         .reset_index(drop=True)
     )
 
+def add_total_trade(df:pd.DataFrame,
+                    import_column:str = "imports_quantity",
+                    export_column:str = "exports_quantity") ->pd.DataFrame:
+    """ """
+
+    df['total_trade'] = df[import_column]+(df[export_column]*-1)
+    return df
+
 
 def get_yearly_prices_data(commodities_list: list) -> pd.DataFrame:
 
@@ -233,7 +241,9 @@ def pipeline():
     # STEP 4: Combine imports and exports data and calculate net imports quantity
     data = get_net_imports(
         imports_df=afr_imp, exports_df=afr_exp, column_to_net="quantity"
-    )
+    ).pipe(add_total_trade)
+
+
 
     # Get the list of commodities for study
     commodities = list(data.pink_sheet_commodity.unique()) + ["Wheat, US HRW", "Rice"]
@@ -253,9 +263,9 @@ def pipeline():
     # STEP 5: Calculate spending for commodities for all variables
     data = data.pipe(
         get_spending,
-        units_columns=["imports_quantity", "exports_quantity", "net_imports_quantity"],
+        units_columns=["imports_quantity", "exports_quantity", "net_imports_quantity", "total_trade"],
         prices=[("pre-crisis", mean_18_20_prices), ("latest", latest_prices)],
-    )
+    ).pipe(add_population)
 
     return data
 
