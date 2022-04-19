@@ -3,7 +3,7 @@ cost of net imports."""
 
 import pandas as pd
 from scripts.config import paths
-from scripts.utils import add_population
+from scripts.utils import add_population, add_gdp
 
 from scripts.commodities_analysis import get_commodity_prices
 
@@ -261,11 +261,15 @@ def pipeline():
     latest_prices = get_latest_prices_data(commodities)
 
     # STEP 5: Calculate spending for commodities for all variables
-    data = data.pipe(
+    data = (data.pipe(
         get_spending,
         units_columns=["imports_quantity", "exports_quantity", "net_imports_quantity", "total_trade"],
-        prices=[("pre-crisis", mean_18_20_prices), ("latest", latest_prices)],
-    ).pipe(add_population)
+        prices=[("pre_crisis", mean_18_20_prices), ("latest", latest_prices)],
+    )
+            .pipe(add_population)
+            .pipe(add_gdp)
+
+            )
 
     return data
 
