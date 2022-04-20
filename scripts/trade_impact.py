@@ -121,11 +121,22 @@ def get_african_imports(df: pd.DataFrame) -> pd.DataFrame:
     return (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity",], as_index=False,
+            [
+                "year",
+                "importer",
+                "category",
+                "pink_sheet_commodity",
+            ],
+            as_index=False,
         )
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
-        .rename(columns={"quantity": "imports_quantity", "importer": "iso_code",})
+        .rename(
+            columns={
+                "quantity": "imports_quantity",
+                "importer": "iso_code",
+            }
+        )
     )
 
 
@@ -139,7 +150,12 @@ def get_african_exports(df: pd.DataFrame) -> pd.DataFrame:
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
         .assign(quantity=lambda d: -1 * d.quantity)
-        .rename(columns={"quantity": "exports_quantity", "exporter": "iso_code",})
+        .rename(
+            columns={
+                "quantity": "exports_quantity",
+                "exporter": "iso_code",
+            }
+        )
     )
 
 
