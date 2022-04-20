@@ -2,3 +2,5 @@ numpy
 pandas
 country_converter
 openpyxl
+wbgapi
+weo
