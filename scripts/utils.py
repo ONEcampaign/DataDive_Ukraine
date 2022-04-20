@@ -5,14 +5,22 @@ import wbgapi as wb
 import weo
 from scripts import config
 
+# =============================================================================
+#  Parameters
+# =============================================================================
+
+WEO_YEAR: int = 2022
+WEO_RELEASE: int = 1
+GDP_YEAR: int = 2021
+
 
 # =============================================================================
 #  population
 # =============================================================================
 
 
-def get_wb_indicator(indicator: str):
-    """query wb api"""
+def get_wb_indicator(indicator: str) -> pd.DataFrame:
+    """query wb api using a specific indicator code"""
     try:
         return wb.data.DataFrame(
             indicator,
@@ -26,18 +34,22 @@ def get_wb_indicator(indicator: str):
         raise ConnectionError(f"Could not retrieve indicator {indicator}")
 
 
-def wb_indicator_to_dict(df, indicator):
-    """converts a wb dataframe to a dictionary where keys are iso3 codes and values are indicator values"""
-    return df[indicator].astype("int32").to_dict()
+def wb_indicator_to_dict(df: pd.DataFrame, indicator_col: str):
+    """converts a wb series to a dictionary where keys are iso3 codes and values
+    are indicator values"""
+    return df[indicator_col].astype("int32").to_dict()
 
 
-def add_population(df):
-    "adds population to a dataframe"
-    pop = get_wb_indicator("SP.POP.TOTL").pipe(wb_indicator_to_dict, "SP.POP.TOTL")
+def add_population(df: pd.DataFrame, iso_codes_col: str = "iso_code") -> pd.DataFrame:
+    """Adds population to a dataframe"""
 
-    df["population"] = df.iso_code.map(pop)
+    # population indicator ID
+    id_ = "SP.POP.TOTL"
 
-    return df
+    # get population data
+    pop_: dict = get_wb_indicator(id_).pipe(wb_indicator_to_dict, id_)
+
+    return df.assign(population=lambda d: d[iso_codes_col].map(pop_))
 
 
 # =============================================================================
@@ -62,7 +74,7 @@ def _download_weo(year: int, release: int) -> None:
 def _clean_weo(df: pd.DataFrame) -> pd.DataFrame:
     """cleans and formats weo dataframe"""
 
-    columns = names = {
+    columns = {
         "ISO": "iso_code",
         "WEO Subject Code": "indicator",
         "Subject Descriptor": "indicator_name",
@@ -76,38 +88,45 @@ def _clean_weo(df: pd.DataFrame) -> pd.DataFrame:
         "Country/Series-specific Notes",
         "Estimates Start After",
     ]
-    df = (
+    return (
         df.drop(cols_to_drop, axis=1)
         .rename(columns=columns)
-        .melt(id_vars=names.values(), var_name="year", value_name="value")
+        .melt(id_vars=columns.values(), var_name="year", value_name="value")
+        .assign(
+            value=lambda d: d.value.map(
+                lambda x: str(x).replace(",", "").replace("-", "")
+            )
+        )
+        .astype({"year": "int32"})
+        .assign(value=lambda d: pd.to_numeric(d.value, errors="coerce"))
     )
-    df.value = df.value.map(
-        lambda x: (str(x).strip().replace(",", "").replace("--", ""))
-    )
-    df.year = pd.to_numeric(df.year)
-    df.value = pd.to_numeric(df.value, errors="coerce")
-
-    return df
 
 
 def get_gdp(gdp_year: int, weo_year: int, weo_release: int) -> dict:
     """
     Retrieves gdp value for a specific year
     """
-
+    # download weo data
     _download_weo(year=weo_year, release=weo_release)
+
+    # Read the weo data
     df = weo.WEO(f"{config.paths.raw_data}/weo_{weo_year}_{weo_release}.csv").df
-    df = _clean_weo(df)
-    df = df[(df.indicator == "NGDPD") & (df.year == gdp_year)][["iso_code", "value"]]
-    df.value = df.value * 1e9
-    df.rename(columns={"value": "gdp"}, inplace=True)
 
-    return df.set_index("iso_code")["gdp"].to_dict()
+    # Clean the weo data. Filter for GDP, convert to USD. Return as dictionary
+    return (
+        df.pipe(_clean_weo)
+        .loc[
+            lambda d: (d.indicator == "NGDPD") & (d.year == gdp_year),
+            ["iso_code", "value"],
+        ]
+        .assign(gdp=lambda d: d.value * 1e9)
+        .set_index("iso_code")["gdp"]
+        .to_dict()
+    )
 
 
-def add_gdp(df):
+def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
     """adds gdp to a dataframe"""
-    gdp = get_gdp(2021, 2021, 2)
-    df["gdp"] = df.iso_code.map(gdp)
+    gdp: dict = get_gdp(gdp_year=GDP_YEAR, weo_year=WEO_YEAR, weo_release=WEO_RELEASE)
 
-    return df
+    return df.assign(gdp=lambda d: d[iso_codes_col].map(gdp))
