@@ -123,7 +123,10 @@ def get_gdp(gdp_year: int) -> dict:
     )
 
 
-def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
+def add_gdp(
+    df: pd.DataFrame,
+    iso_codes_col: str = "iso_code",
+) -> pd.DataFrame:
     """adds gdp to a dataframe"""
     gdp: dict = get_gdp(gdp_year=GDP_YEAR)
 
