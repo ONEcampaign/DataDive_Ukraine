@@ -123,10 +123,7 @@ def get_gdp(gdp_year: int) -> dict:
     )
 
 
-def add_gdp(
-    df: pd.DataFrame,
-    iso_codes_col: str = "iso_code",
-) -> pd.DataFrame:
+def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
     """adds gdp to a dataframe"""
     gdp: dict = get_gdp(gdp_year=GDP_YEAR)
 
@@ -188,10 +185,11 @@ def add_ppp(
     lcu_usd_id = "PA.NUS.FCRF"
     lcu_usd: dict = get_wb_indicator(lcu_usd_id).pipe(wb_indicator_to_dict, lcu_usd_id)
 
-    return df.assign(
-        value_ppp=lambda d: (d[usd_values_col] * d[iso_codes_col].map(lcu_usd))
-        / d[iso_codes_col].map(lcu_ppp)
-    )
+    df[f"{usd_values_col}_ppp"] = (
+        df[usd_values_col] * df[iso_codes_col].map(lcu_usd)
+    ) / df[iso_codes_col].map(lcu_ppp)
+
+    return df
 
 
 if __name__ == "__main__":

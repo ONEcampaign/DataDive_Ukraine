@@ -3,7 +3,8 @@ cost of net imports."""
 
 import pandas as pd
 from scripts.config import paths
-from scripts.utils import add_population, add_gdp
+from scripts import utils
+import country_converter as coco
 
 from scripts.commodities_analysis import get_commodity_prices
 
@@ -120,22 +121,11 @@ def get_african_imports(df: pd.DataFrame) -> pd.DataFrame:
     return (
         df.pipe(_only_african_imports)
         .groupby(
-            [
-                "year",
-                "importer",
-                "category",
-                "pink_sheet_commodity",
-            ],
-            as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity",], as_index=False,
         )
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
-        .rename(
-            columns={
-                "quantity": "imports_quantity",
-                "importer": "iso_code",
-            }
-        )
+        .rename(columns={"quantity": "imports_quantity", "importer": "iso_code",})
     )
 
 
@@ -149,12 +139,7 @@ def get_african_exports(df: pd.DataFrame) -> pd.DataFrame:
         .sum()
         .pipe(_yearly_average, exclude=["year", "quantity"])
         .assign(quantity=lambda d: -1 * d.quantity)
-        .rename(
-            columns={
-                "quantity": "exports_quantity",
-                "exporter": "iso_code",
-            }
-        )
+        .rename(columns={"quantity": "exports_quantity", "exporter": "iso_code",})
     )
 
 
@@ -227,7 +212,9 @@ def get_spending(
             prices[1][1]
         )
 
-    return df
+    return df.rename(
+        columns={k: k.replace("_quantity", "") for k in df.columns if "value" in k}
+    )
 
 
 def pipeline():
@@ -244,7 +231,10 @@ def pipeline():
     # STEP 4: Combine imports and exports data and calculate net imports quantity
     data = get_net_imports(
         imports_df=afr_imp, exports_df=afr_exp, column_to_net="quantity"
-    ).pipe(add_total_trade)
+    )
+
+    # Add total trade
+    data = data.pipe(add_total_trade)
 
     # Get the list of commodities for study
     commodities = list(data.pink_sheet_commodity.unique()) + ["Wheat, US HRW", "Rice"]
@@ -262,23 +252,55 @@ def pipeline():
     latest_prices = get_latest_prices_data(commodities)
 
     # STEP 5: Calculate spending for commodities for all variables
-    data = (
-        data.pipe(
-            get_spending,
-            units_columns=[
-                "imports_quantity",
-                "exports_quantity",
-                "net_imports_quantity",
-                "total_trade",
-            ],
-            prices=[("pre_crisis", mean_18_20_prices), ("latest", latest_prices)],
-        )
-        .pipe(add_population)
-        .pipe(add_gdp)
+    data = data.pipe(
+        get_spending,
+        units_columns=[
+            "imports_quantity",
+            "exports_quantity",
+            "net_imports_quantity",
+            "total_trade",
+        ],
+        prices=[("pre_crisis", mean_18_20_prices), ("latest", latest_prices)],
     )
+
+    # STEP 6: Add net impact (value)
+    data = data.assign(
+        net_imports_impact_value=lambda d: d.value_net_imports_latest
+        - d.value_net_imports_pre_crisis
+    )
+
+    # STEP 7: Add other categorical information about countries
+
+    data = (
+        data.pipe(utils.add_ppp, usd_values_col="value_imports_pre_crisis")
+        .pipe(utils.add_ppp, usd_values_col="value_imports_latest")
+        .pipe(utils.add_ppp, usd_values_col="value_exports_pre_crisis")
+        .pipe(utils.add_ppp, usd_values_col="value_exports_latest")
+        .pipe(utils.add_ppp, usd_values_col="value_net_imports_pre_crisis")
+        .pipe(utils.add_ppp, usd_values_col="value_net_imports_latest")
+        .pipe(utils.add_ppp, usd_values_col="net_imports_impact_value")
+        .pipe(utils.add_population)
+        .pipe(utils.add_gdp)
+        .pipe(utils.add_income_levels)
+        .assign(country=lambda d: coco.convert(d.iso_code, to="short_name"))
+    )
+
+    # STEP 8: Reshape for analysis
+    idx = [
+        "iso_code",
+        "country",
+        "category",
+        "pink_sheet_commodity",
+        "year",
+        "population",
+        "gdp",
+        "income_level",
+    ]
+    data = data.melt(id_vars=idx, var_name="indicator")
 
     return data
 
 
 if __name__ == "__main__":
     analysis = pipeline()
+    analysis.to_csv(paths.output + r"/data_for_analysis.csv", index=False)
