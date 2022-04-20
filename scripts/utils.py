@@ -102,15 +102,13 @@ def _clean_weo(df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def get_gdp(gdp_year: int, weo_year: int, weo_release: int) -> dict:
+def get_gdp(gdp_year: int) -> dict:
     """
     Retrieves gdp value for a specific year
     """
-    # download weo data
-    _download_weo(year=weo_year, release=weo_release)
 
     # Read the weo data
-    df = weo.WEO(f"{config.paths.raw_data}/weo_{weo_year}_{weo_release}.csv").df
+    df = weo.WEO(f"{config.paths.raw_data}/weo_{WEO_YEAR}_{WEO_RELEASE}.csv").df
 
     # Clean the weo data. Filter for GDP, convert to USD. Return as dictionary
     return (
@@ -125,11 +123,50 @@ def get_gdp(gdp_year: int, weo_year: int, weo_release: int) -> dict:
     )
 
 
-def add_gdp(
-    df: pd.DataFrame,
-    iso_codes_col: str = "iso_code",
-) -> pd.DataFrame:
+def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
     """adds gdp to a dataframe"""
-    gdp: dict = get_gdp(gdp_year=GDP_YEAR, weo_year=WEO_YEAR, weo_release=WEO_RELEASE)
+    gdp: dict = get_gdp(gdp_year=GDP_YEAR)
 
     return df.assign(gdp=lambda d: d[iso_codes_col].map(gdp))
+
+
+# =============================================================================
+#  income levels
+# =============================================================================
+
+
+def _download_income_levels():
+    """Downloads fresh version of income levels from WB"""
+    url = "https://databank.worldbank.org/data/download/site-content/CLASS.xlsx"
+
+    df = pd.read_excel(
+        url,
+        sheet_name="List of economies",
+        usecols=["Code", "Income group"],
+        na_values=None,
+    )
+
+    df = df.dropna(subset=["Income group"])
+
+    df.to_csv(config.paths.raw_data + r"/income_levels.csv", index=False)
+    print("Downloaded income levels")
+
+
+def get_income_levels() -> dict:
+    """Return income level dictionary"""
+    file = config.paths.raw_data + r"/income_levels.csv"
+    return pd.read_csv(file, na_values=None, index_col="Code")["Income group"].to_dict()
+
+
+def add_income_levels(
+    df: pd.DataFrame, iso_codes_col: str = "iso_code"
+) -> pd.DataFrame:
+    """Add income levels to a dataframe"""
+    income_levels: dict = get_income_levels()
+
+    return df.assign(income_level=lambda d: d[iso_codes_col].map(income_levels))
+
+
+if __name__ == "__main__":
+    _download_income_levels()
+    _download_weo(year=WEO_YEAR, release=WEO_RELEASE)
