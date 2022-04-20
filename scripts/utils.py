@@ -123,10 +123,7 @@ def get_gdp(gdp_year: int) -> dict:
     )
 
 
-def add_gdp(
-    df: pd.DataFrame,
-    iso_codes_col: str = "iso_code",
-) -> pd.DataFrame:
+def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
     """adds gdp to a dataframe"""
     gdp: dict = get_gdp(gdp_year=GDP_YEAR)
 
@@ -168,6 +165,30 @@ def add_income_levels(
     income_levels: dict = get_income_levels()
 
     return df.assign(income_level=lambda d: d[iso_codes_col].map(income_levels))
+
+
+# =============================================================================
+#  PPP conversion
+# =============================================================================
+
+
+def add_ppp(
+    df: pd.DataFrame, iso_codes_col: str = "iso_code", usd_values_col: str = "value"
+) -> pd.DataFrame:
+    """Adds PPP values to a dataframe"""
+
+    # GDP conversion factor for LCU to International USD (PPP)
+    lcu_ppp_id = "PA.NUS.PPP"
+    lcu_ppp: dict = get_wb_indicator(lcu_ppp_id).pipe(wb_indicator_to_dict, lcu_ppp_id)
+
+    # Official exchange rate (LCU per US$, period average)
+    lcu_usd_id = "PA.NUS.FCRF"
+    lcu_usd: dict = get_wb_indicator(lcu_usd_id).pipe(wb_indicator_to_dict, lcu_usd_id)
+
+    return df.assign(
+        value_ppp=lambda d: (d[usd_values_col] * d[iso_codes_col].map(lcu_usd))
+        / d[iso_codes_col].map(lcu_ppp)
+    )
 
 
 if __name__ == "__main__":
