@@ -310,22 +310,30 @@ def crude_evolution_chart() -> None:
             axis=1,
         )
         .assign(
-            net_exports_quantity=lambda d: d.net_exports_quantity / 1e6,
-            value_net_exports_pre_crisis=lambda d: d.value_net_exports_pre_crisis / 1e9,
-            value_net_exports_latest=lambda d: d.value_net_exports_latest / 1e9,
-            value_net_exports_impact=lambda d: d.value_net_exports_impact / 1e9,
+            net_exports_quantity=lambda d: round(d.net_exports_quantity / 1e6, 0),
+            value_net_exports_pre_crisis=lambda d: round(
+                d.value_net_exports_pre_crisis / 1e9, 1
+            ),
+            value_net_exports_latest=lambda d: round(
+                d.value_net_exports_latest / 1e9, 1
+            ),
+            value_net_exports_impact=lambda d: round(
+                d.value_net_exports_impact / 1e9, 1
+            ),
+            value_exp_latest_pp=lambda d: round(d.value_exp_latest_pp, 1),
         )
         .rename(
             columns={
                 "net_exports_quantity": "Net exports (million barrels)",
-                "value_net_exports_pre_crisis": "Average revenue (pre-war)",
-                "value_net_exports_latest": "Potential revenue (current prices)",
+                "value_net_exports_pre_crisis": "Pre-war average",
+                "value_net_exports_latest": "At current prices",
                 "value_net_exports_impact": "Potential additional revenue",
                 "value_exp_latest_pp": "Potential revenue per capita (current prices)",
             }
         )
     )
 
+    df.to_clipboard(index=False)
 
 def pipeline():
 
