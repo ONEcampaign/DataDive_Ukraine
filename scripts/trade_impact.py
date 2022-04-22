@@ -136,7 +136,8 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
     df = (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity"], as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity"],
+            as_index=False,
         )
         .sum()
     )
