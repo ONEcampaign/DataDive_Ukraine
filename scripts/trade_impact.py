@@ -335,6 +335,7 @@ def crude_evolution_chart() -> None:
 
     df.to_clipboard(index=False)
 
+
 def pipeline():
 
     # Combine imports and exports data and calculate net imports quantity
