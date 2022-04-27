@@ -136,8 +136,7 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
     df = (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity"],
-            as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity"], as_index=False,
         )
         .sum()
     )
@@ -415,20 +414,24 @@ def vegetable_oils_chart() -> None:
     """A Flourish chart to visualise the change in cost (in usd million and per capita)
     for palm and sunflower oils"""
 
-    palm_oil = _flourish_commodity_pipeline(
-        "Palm oil",
-        value_rounding=1e6,
-    )
-    sunflower_oil = _flourish_commodity_pipeline(
-        "Sunflower oil",
-        value_rounding=1e6,
-    )
+    palm_oil = _flourish_commodity_pipeline("Palm oil", value_rounding=1e6,)
+    sunflower_oil = _flourish_commodity_pipeline("Sunflower oil", value_rounding=1e6,)
 
     df = (
         pd.concat([palm_oil, sunflower_oil], ignore_index=True)
+        .loc[lambda d: d.country != "Djibouti"]
         .groupby(["country"], as_index=False)
         .sum()
-        .round({"Net imports (tonnes)": 0})
+        .round(
+            {
+                "Net imports (tonnes)": 0,
+                "Pre-war average": 1,
+                "At current prices": 1,
+                "Potential additional cost": 1,
+                "Cost per capita (Pre-war prices)": 1,
+                "Potential cost per capita (current prices)": 1,
+            }
+        )
         .astype({"Net imports (tonnes)": "int64"})
     )
 
@@ -458,12 +461,14 @@ def grains_chart() -> None:
         grain.drop(["At current prices"], axis=1)
         .assign(indicator="Pre-war average")
         .sort_values(by=["Pre-war average"], ascending=True)
+        .round({"Pre-war average": 1})
         .reset_index(drop=True)
     )
 
     grain_pre_post = (
         grain.melt(id_vars=["country"], var_name="indicator")
         .sort_values(by="value", ascending=True)
+        .round({"value": 1})
         .reset_index(drop=True)
     )
 
