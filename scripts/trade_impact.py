@@ -136,8 +136,7 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
     df = (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity"],
-            as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity"], as_index=False,
         )
         .sum()
     )
@@ -415,14 +414,8 @@ def vegetable_oils_chart() -> None:
     """A Flourish chart to visualise the change in cost (in usd million and per capita)
     for palm and sunflower oils"""
 
-    palm_oil = _flourish_commodity_pipeline(
-        "Palm oil",
-        value_rounding=1e6,
-    )
-    sunflower_oil = _flourish_commodity_pipeline(
-        "Sunflower oil",
-        value_rounding=1e6,
-    )
+    palm_oil = _flourish_commodity_pipeline("Palm oil", value_rounding=1e6,)
+    sunflower_oil = _flourish_commodity_pipeline("Sunflower oil", value_rounding=1e6,)
 
     df = (
         pd.concat([palm_oil, sunflower_oil], ignore_index=True)
@@ -440,6 +433,12 @@ def vegetable_oils_chart() -> None:
             }
         )
         .astype({"Net imports (tonnes)": "int64"})
+        .rename(
+            columns={
+                "Cost per capita (Pre-war prices)": "Pre-war average",
+                "Potential cost per capita (current prices)": "At current prices",
+            }
+        )
     )
 
     df.to_csv(paths.output + r"/vegetable_oils_chart.csv", index=False)
