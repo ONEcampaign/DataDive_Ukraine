@@ -136,8 +136,7 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
     df = (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity"],
-            as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity"], as_index=False,
         )
         .sum()
     )
@@ -257,58 +256,93 @@ def get_net_imports_africa(yearly: bool = False) -> pd.DataFrame:
     )
 
 
-def crude_evolution_chart() -> None:
-    """A Flourish chart to visualise additional revenue from net crude exports, for
-    selected countries"""
+def _commodity_evolution_df(commodity: str, exports: bool = False) -> pd.DataFrame:
+    """Steps to get the change for a slope chart on Flourish"""
 
     df = get_net_imports_africa()
 
     # filter for crude
-    df = (
-        df.loc[lambda d: (d.category == "crude oil") & (d.net_imports_quantity < 0)]
-        .loc[lambda d: d.iso_code.isin(CRUDE_COUNTRIES)]
-        .assign(net_exports_quantity=lambda d: -d.net_imports_quantity)
-        .reset_index(drop=True)
-    )
+    df = df.loc[
+        lambda d: (d.pink_sheet_commodity == commodity)
+        & (d.net_imports_quantity < 0 if exports else d.net_imports_quantity > 0)
+    ].reset_index(drop=True)
+
+    if exports:
+        df = df.assign(net_exports_quantity=lambda d: -d.net_imports_quantity)
+
     # Get yearly prices
-    yearly_prices = get_yearly_prices_data(["Crude oil, average"])
+    yearly_prices = get_yearly_prices_data([commodity])
 
     # Convert to mean prices dict
     mean_18_20_prices = yearly_prices.pipe(_calc_mean_prices, 2018, 2020)
 
     # Get latest prices
-    latest_prices = get_latest_prices_data(["Crude oil, average"])
+    latest_prices = get_latest_prices_data([commodity])
 
     # Calculate spending:
     df = df.pipe(
         get_spending,
-        units_columns=["net_exports_quantity"],
+        units_columns=["net_exports_quantity"] if exports else ["net_imports_quantity"],
         prices=[("pre_crisis", mean_18_20_prices), ("latest", latest_prices)],
-    ).assign(
-        value_net_exports_impact=lambda d: d.value_net_exports_latest
-        - d.value_net_exports_pre_crisis
     )
+
+    if exports:
+        df = df.assign(
+            value_net_exports_impact=lambda d: d.value_net_exports_latest
+            - d.value_net_exports_pre_crisis
+        )
+    else:
+        df = df.assign(
+            value_net_imports_impact=lambda d: d.value_net_imports_latest
+            - d.value_net_imports_pre_crisis
+        )
 
     # Calculate spending by population
+    col = "value_net_exports" if exports else "value_net_imports"
+
     df = df.pipe(utils.add_population).assign(
-        value_exp_pre_pp=lambda d: d.value_net_exports_pre_crisis / d.population,
-        value_exp_latest_pp=lambda d: d.value_net_exports_latest / d.population,
+        value_exp_pre_pp=lambda d: d[f"{col}_pre_crisis"] / d.population,
+        value_exp_latest_pp=lambda d: d[f"{col}_latest"] / d.population,
     )
 
-    # Clean for export
-    df = (
-        df.assign(country=lambda d: coco.convert(d.iso_code, to="short_name"))
-        .filter(
-            [
-                "country",
-                "net_exports_quantity",
-                "value_net_exports_pre_crisis",
-                "value_net_exports_latest",
-                "value_net_exports_impact",
-                "value_exp_latest_pp",
-            ],
-            axis=1,
+    if not exports:
+        df = df.rename(
+            columns={
+                "value_exp_pre_pp": "value_imp_pre_pp",
+                "value_exp_latest_pp": "value_imp_latest_pp",
+            }
         )
+
+    # Clean for export
+    return df.assign(
+        country=lambda d: coco.convert(d.iso_code, to="short_name")
+    ).filter(
+        [
+            "country",
+            "iso_code",
+            "net_exports_quantity",
+            "net_imports_quantity",
+            "value_net_exports_pre_crisis",
+            "value_net_imports_pre_crisis",
+            "value_net_exports_latest",
+            "value_net_imports_latest",
+            "value_net_exports_impact",
+            "value_net_imports_impact",
+            "value_exp_latest_pp",
+            "value_imp_latest_pp",
+            "value_imp_pre_pp",
+        ],
+        axis=1,
+    )
+
+
+def crude_evolution_chart() -> None:
+    """A Flourish chart to visualise additional revenue from net crude exports, for
+    selected countries"""
+    df = (
+        _commodity_evolution_df("Crude oil, average", exports=True)
+        .loc[lambda d: d.iso_code.isin(CRUDE_COUNTRIES)]
+        .drop("iso_code", axis=1)
         .assign(
             net_exports_quantity=lambda d: round(d.net_exports_quantity / 1e6, 0),
             value_net_exports_pre_crisis=lambda d: round(
@@ -333,10 +367,104 @@ def crude_evolution_chart() -> None:
         )
     )
 
-    df.to_clipboard(index=False)
+    df.to_csv(paths.output + r"/crude_oil_chart.csv", index=False)
 
 
-def pipeline():
+def _flourish_commodity_pipeline(
+    commodity: str,
+    quantity_unit: str = "tonnes",
+    quantity_rounding: float = 1,
+    value_rounding: float = 1,
+) -> pd.DataFrame:
+
+    df = (
+        _commodity_evolution_df(commodity, exports=False)
+        .assign(commodity=commodity)
+        .drop("iso_code", axis=1)
+    )
+
+    return df.assign(
+        net_imports_quantity=lambda d: round(
+            d.net_imports_quantity / quantity_rounding, 1
+        ),
+        value_net_imports_pre_crisis=lambda d: round(
+            d.value_net_imports_pre_crisis / value_rounding, 1
+        ),
+        value_net_imports_latest=lambda d: round(
+            d.value_net_imports_latest / value_rounding, 1
+        ),
+        value_net_imports_impact=lambda d: round(
+            d.value_net_imports_impact / value_rounding, 1
+        ),
+        value_imp_pre_pp=lambda d: round(d.value_imp_pre_pp, 1),
+        value_imp_latest_pp=lambda d: round(d.value_imp_latest_pp, 1),
+    ).rename(
+        columns={
+            "net_imports_quantity": f"Net imports ({quantity_unit})",
+            "value_net_imports_pre_crisis": "Pre-war average",
+            "value_net_imports_latest": "At current prices",
+            "value_net_imports_impact": "Potential additional cost",
+            "value_imp_pre_pp": "Cost per capita (Pre-war prices)",
+            "value_imp_latest_pp": "Potential cost per capita (current prices)",
+        }
+    )
+
+
+def vegetable_oils_chart() -> None:
+    """ A Flourish chart to visualise the change in cost (in usd million and per capita)
+    for palm and sunflower oils"""
+
+    palm_oil = _flourish_commodity_pipeline("Palm oil", value_rounding=1e6,)
+    sunflower_oil = _flourish_commodity_pipeline("Sunflower oil", value_rounding=1e6,)
+
+    df = (
+        pd.concat([palm_oil, sunflower_oil], ignore_index=True)
+        .groupby(["country"], as_index=False)
+        .sum()
+        .round({"Net imports (tonnes)": 0})
+        .astype({"Net imports (tonnes)": "int64"})
+    )
+
+    df.to_csv(paths.output + r"/vegetable_oils_chart.csv", index=False)
+
+
+def grains_chart() -> None:
+    """ A Flourish chart to visualise the change in cost (in usd million and per capita)
+    for wheat and maize"""
+
+    wheat = _flourish_commodity_pipeline(
+        "Wheat", value_rounding=1e9, quantity_rounding=1e6
+    )
+    maize = _flourish_commodity_pipeline(
+        "Maize", value_rounding=1e9, quantity_rounding=1e6
+    )
+
+    grain = (
+        pd.concat([wheat, maize], ignore_index=True)
+        .groupby(["country"], as_index=False)
+        .sum()
+        .filter(["country", "Pre-war average", "At current prices"], axis=1)
+        .loc[lambda d: d["Pre-war average"] > 0.480]
+    )
+
+    grain_pre = (
+        grain.drop(["At current prices"], axis=1)
+        .assign(indicator="Pre-war average")
+        .sort_values(by=["Pre-war average"], ascending=True)
+        .reset_index(drop=True)
+    )
+
+    grain_pre_post = (
+        grain.melt(id_vars=["country"], var_name="indicator")
+        .sort_values(by="value", ascending=True)
+        .reset_index(drop=True)
+    )
+
+    grain_pre.to_csv(paths.output + r"/grain_chart_pre.csv", index=False)
+    grain_pre_post.to_csv(paths.output + r"/grain_chart_pre_post.csv", index=False)
+
+
+def analysis_pipeline():
 
     # Combine imports and exports data and calculate net imports quantity
     data = get_net_imports_africa()
@@ -404,7 +532,18 @@ def pipeline():
     return data
 
 
+def update_trade_impact_charts() -> None:
+    """ Update trade impact charts for Flourish"""
+
+    crude_evolution_chart()
+    grains_chart()
+    vegetable_oils_chart()
+
+
 if __name__ == "__main__":
     pass
-    # analysis = pipeline()
+
+    update_trade_impact_charts()
+    # analysis = analysis_pipeline()
     # analysis.to_csv(paths.output + r"/data_for_analysis.csv", index=False)
+    # crude_evolution_chart()

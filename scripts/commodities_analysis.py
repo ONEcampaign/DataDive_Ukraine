@@ -12,13 +12,14 @@ from numpy import nan
 
 # ==================  PARAMETERS ======================
 
-COMMODITY_LIST = ["Sunflower oil", "Maize", "Wheat, US HRW", "Palm oil"]
+COMMODITY_LIST = ["Sunflower oil", "Maize", "Wheat, US HRW", "Wheat", "Palm oil"]
 
 COMMODITY_URL = (
     "https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-"
     "0350012021/related/CMO-Historical-Data-Monthly.xlsx"
 )
 
+COMMODITY_DATA = pd.read_excel(COMMODITY_URL, sheet_name="Monthly Prices")
 # =======================================================
 
 
@@ -27,7 +28,7 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
     Gets the commodity data from the World Bank and returns a clean DataFrame
     """
     # read excel
-    df = pd.read_excel(COMMODITY_URL, sheet_name="Monthly Prices")
+    df = COMMODITY_DATA.copy()
 
     # cleaning
     df.columns = df.iloc[3]
@@ -36,9 +37,9 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
         .iloc[6:]
         .reset_index(drop=True)
         .rename(columns={"Rice, Thai 5%": "Rice"})
+        .rename(columns={"Wheat, US HRW": "Wheat"})
         .filter(["period"] + commodities)
         .replace("..", nan)
-        .rename(columns={"Wheat, US HRW": "Wheat"})
     )
 
     # change date format

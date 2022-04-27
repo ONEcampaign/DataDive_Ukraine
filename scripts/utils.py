@@ -40,16 +40,49 @@ def wb_indicator_to_dict(df: pd.DataFrame, indicator_col: str):
     return df[indicator_col].astype("int32").to_dict()
 
 
+def update_wb_indicator(id_: str) -> None:
+
+    # get population data
+    get_wb_indicator(id_).to_csv(config.paths.raw_data + rf"/{id_}.csv", index=True)
+
+
 def add_population(df: pd.DataFrame, iso_codes_col: str = "iso_code") -> pd.DataFrame:
     """Adds population to a dataframe"""
 
-    # population indicator ID
     id_ = "SP.POP.TOTL"
-
-    # get population data
-    pop_: dict = get_wb_indicator(id_).pipe(wb_indicator_to_dict, id_)
+    pop_: dict = pd.read_csv(
+        config.paths.raw_data + rf"/{id_}.csv", dtype={f"{id_}": float}, index_col=0
+    ).pipe(wb_indicator_to_dict, id_)
 
     return df.assign(population=lambda d: d[iso_codes_col].map(pop_))
+
+
+def add_health_pc(df: pd.DataFrame, iso_codes_col: str = "iso_code") -> pd.DataFrame:
+    """Adds population to a dataframe"""
+
+    id_ = "SH.XPD.GHED.PC.CD"
+    pop_: dict = pd.read_csv(
+        config.paths.raw_data + rf"/{id_}.csv", dtype={f"{id_}": float}, index_col=0
+    ).pipe(wb_indicator_to_dict, id_)
+
+    return df.assign(health_spending=lambda d: d[iso_codes_col].map(pop_))
+
+
+def get_debt_service(year: int = 2022) -> dict:
+
+    import country_converter as coco
+
+    df = pd.read_csv(config.paths.raw_data + r"/ids_service_raw.csv")
+
+    df = (
+        df.loc[lambda d: (d["counterpart-area"] == "World") & (d.time == year)]
+        .groupby(["country", "time"], as_index=False)["value"]
+        .sum()
+        .assign(iso_code=lambda d: coco.convert(d.country, to="ISO3"))
+        .loc[lambda d: d.iso_code != "not found"]
+        .reset_index(drop=True)
+    )
+    return df.set_index("iso_code").value.to_dict()
 
 
 # =============================================================================
@@ -123,10 +156,7 @@ def get_gdp(gdp_year: int) -> dict:
     )
 
 
-def add_gdp(
-    df: pd.DataFrame,
-    iso_codes_col: str = "iso_code",
-) -> pd.DataFrame:
+def add_gdp(df: pd.DataFrame, iso_codes_col: str = "iso_code",) -> pd.DataFrame:
     """adds gdp to a dataframe"""
     gdp: dict = get_gdp(gdp_year=GDP_YEAR)
 
@@ -182,11 +212,15 @@ def add_ppp(
 
     # GDP conversion factor for LCU to International USD (PPP)
     lcu_ppp_id = "PA.NUS.PPP"
-    lcu_ppp: dict = get_wb_indicator(lcu_ppp_id).pipe(wb_indicator_to_dict, lcu_ppp_id)
+    lcu_ppp: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_ppp_id}").pipe(
+        wb_indicator_to_dict, lcu_ppp_id
+    )
 
     # Official exchange rate (LCU per US$, period average)
     lcu_usd_id = "PA.NUS.FCRF"
-    lcu_usd: dict = get_wb_indicator(lcu_usd_id).pipe(wb_indicator_to_dict, lcu_usd_id)
+    lcu_usd: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_usd_id}").pipe(
+        wb_indicator_to_dict, lcu_usd_id
+    )
 
     df[f"{usd_values_col}_ppp"] = (
         df[usd_values_col] * df[iso_codes_col].map(lcu_usd)
@@ -198,3 +232,12 @@ def add_ppp(
 if __name__ == "__main__":
     _download_income_levels()
     _download_weo(year=WEO_YEAR, release=WEO_RELEASE)
+    update_wb_indicator(id_="SP.POP.TOTL")
+    update_wb_indicator(id_="PA.NUS.PPP")
+    update_wb_indicator(id_="PA.NUS.FCRF")
+
+    # Education
+    update_wb_indicator(id_="SE.XPD.TOTL.GD.ZS")
+
+    # Health per capita
+    update_wb_indicator(id_="SH.XPD.GHED.PC.CD")
