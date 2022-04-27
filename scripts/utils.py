@@ -215,13 +215,13 @@ def add_ppp(
 
     # GDP conversion factor for LCU to International USD (PPP)
     lcu_ppp_id = "PA.NUS.PPP"
-    lcu_ppp: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_ppp_id}").pipe(
+    lcu_ppp: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_ppp_id}.csv").pipe(
         wb_indicator_to_dict, lcu_ppp_id
     )
 
     # Official exchange rate (LCU per US$, period average)
     lcu_usd_id = "PA.NUS.FCRF"
-    lcu_usd: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_usd_id}").pipe(
+    lcu_usd: dict = pd.read_csv(config.paths.raw_data + rf"/{lcu_usd_id}.csv").pipe(
         wb_indicator_to_dict, lcu_usd_id
     )
 
