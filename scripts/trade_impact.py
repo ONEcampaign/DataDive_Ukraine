@@ -136,7 +136,8 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
     df = (
         df.pipe(_only_african_imports)
         .groupby(
-            ["year", "importer", "category", "pink_sheet_commodity"], as_index=False,
+            ["year", "importer", "category", "pink_sheet_commodity"],
+            as_index=False,
         )
         .sum()
     )
@@ -411,11 +412,17 @@ def _flourish_commodity_pipeline(
 
 
 def vegetable_oils_chart() -> None:
-    """ A Flourish chart to visualise the change in cost (in usd million and per capita)
+    """A Flourish chart to visualise the change in cost (in usd million and per capita)
     for palm and sunflower oils"""
 
-    palm_oil = _flourish_commodity_pipeline("Palm oil", value_rounding=1e6,)
-    sunflower_oil = _flourish_commodity_pipeline("Sunflower oil", value_rounding=1e6,)
+    palm_oil = _flourish_commodity_pipeline(
+        "Palm oil",
+        value_rounding=1e6,
+    )
+    sunflower_oil = _flourish_commodity_pipeline(
+        "Sunflower oil",
+        value_rounding=1e6,
+    )
 
     df = (
         pd.concat([palm_oil, sunflower_oil], ignore_index=True)
@@ -429,7 +436,7 @@ def vegetable_oils_chart() -> None:
 
 
 def grains_chart() -> None:
-    """ A Flourish chart to visualise the change in cost (in usd million and per capita)
+    """A Flourish chart to visualise the change in cost (in usd million and per capita)
     for wheat and maize"""
 
     wheat = _flourish_commodity_pipeline(
@@ -533,7 +540,7 @@ def analysis_pipeline():
 
 
 def update_trade_impact_charts() -> None:
-    """ Update trade impact charts for Flourish"""
+    """Update trade impact charts for Flourish"""
 
     crude_evolution_chart()
     grains_chart()
