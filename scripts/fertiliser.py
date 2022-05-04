@@ -6,6 +6,7 @@ calculated values are averages of 2019 and 2018
 
 """
 import country_converter as coco
+from scripts import config
 import pandas as pd
 from scripts.config import paths
 from scripts.trade_impact import (
@@ -14,6 +15,7 @@ from scripts.trade_impact import (
     get_spending,
     _calc_mean_prices,
 )
+from scripts.commodities_analysis import get_commodity_prices
 
 
 # fertilisers keys = pink sheet name, values = FAO name
@@ -24,6 +26,19 @@ fertilisers = {
     "Urea": "Urea ",
     "Potassium chloride (muriate of potash) (MOP)": "Potassium chloride",
 }
+
+
+def fertilizer_price_chart() ->None:
+    """create csv for fertilizer price chart from WB pink sheet"""
+
+    df = get_commodity_prices(list(fertilisers.values()))
+    df = df[df.period>='2007-05-01'].melt('period').reset_index(drop=True)
+    df.columns = ['period', 'fertilizer', 'price']
+
+    df.to_csv(f'{config.paths.output}/fertiliser_prices.csv', index=False)
+
+
+
 
 
 def clean_raw_fao(df: pd.DataFrame) -> pd.DataFrame:
@@ -68,10 +83,12 @@ def fertilizer_pipeline():
     df = pd.read_csv(f"{paths.raw_data}/fertilizer_fao.csv")
     df = clean_raw_fao(df)
     df["pink_sheet_commodity"] = df.fertiliser.map(fertilisers)
+    df.import_quantity = df.import_quantity.fillna(0)
+    df.export_quantity = df.export_quantity.fillna(0)
     df["net_import_qty"] = (
         df.import_quantity - df.export_quantity
-    )  ################## what about NAN values? Assume 0?
-    df["ratio_in_ag"] = df.ag_use / df.import_quantity
+    )
+    #df["ratio_in_ag"] = df.ag_use / df.import_quantity
 
     latest_price = get_latest_prices_data(list(fertilisers.values()))
     mean_prices = get_yearly_prices_data(list(fertilisers.values()))
@@ -82,31 +99,30 @@ def fertilizer_pipeline():
         ["net_import_qty"],
         [("latest", latest_price), ("pre_crisis", means)],
     )
+    df['change'] = df.value_net_import_qty_latest - df.value_net_import_qty_pre_crisis
 
     return df
 
 
-def flourish_slope_africa(df: pd.DataFrame, fertiliser: str):
+def flourish_slope_africa(df: pd.DataFrame, fertiliser_list: list):
 
-    return df[(df.fertiliser == fertiliser) & (df.continent == "Africa")].dropna(
+    return df.loc[(df.fertiliser.isin(fertiliser_list))
+              & (df.continent == "Africa")
+              &(df.net_import_qty>=0)
+              &(df.change!=0),
+                  [
+                      "iso_code",
+                      "country",
+                      "fertiliser",
+                      "pink_sheet_commodity",
+                      "value_net_import_qty_latest",
+                      "value_net_import_qty_pre_crisis",
+                  ]].dropna(
         subset=["value_net_import_qty_latest", "value_net_import_qty_pre_crisis"]
-    )[
-        [
-            "iso_code",
-            "country",
-            "fertiliser",
-            "pink_sheet_commodity",
-            "value_net_import_qty_latest",
-            "value_net_import_qty_pre_crisis",
-        ]
-    ]
+    )
 
 
 if __name__ == "__main__":
 
     data = fertilizer_pipeline()
-    # dap = flourish_slope_africa(data, 'Diammonium phosphate (DAP)')
-    # potash = flourish_slope_africa(data, 'Potassium chloride (muriate of potash) (MOP)')
-    # tsp = flourish_slope_africa(data, 'Superphosphates above 35%')
-    # urea = flourish_slope_africa(data, 'Urea')
-    # phosphate_rock = flourish_slope_africa(data, 'Phosphate rock')
+    
