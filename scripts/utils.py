@@ -5,6 +5,28 @@ import wbgapi as wb
 import weo
 from scripts import config
 
+
+def add_flourish_geometries(df: pd.DataFrame, key_column_name:str) -> pd.DataFrame:
+    """
+    Adds a geometry column to a dataframe based on iso3 code
+    key_column_name: name of column with iso3 codes to merge on
+    """
+
+    g = pd.read_json(f'{config.paths.raw_data}/flourish_geometries_world.json')
+    g = (g
+         .rename(columns={g.columns[0]: "flourish_geom", g.columns[1]: key_column_name})
+         .iloc[1:]
+         .drop_duplicates(subset="iso_code", keep="first")
+         .reset_index(drop=True))
+
+    return pd.merge(g, df, on = key_column_name, how='outer')
+
+
+
+
+
+
+
 # =============================================================================
 #  Parameters
 # =============================================================================
@@ -244,3 +266,6 @@ if __name__ == "__main__":
 
     # Health per capita
     update_wb_indicator(id_="SH.XPD.GHED.PC.CD")
+
+
+

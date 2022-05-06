@@ -9,9 +9,8 @@ calculated values are averages of 2019 and 2018
 """
 import country_converter as coco
 import numpy as np
-from scripts import config
+from scripts import config, utils
 import pandas as pd
-from scripts.config import paths
 from scripts.trade_impact import (
     get_latest_prices_data,
     get_yearly_prices_data,
@@ -141,8 +140,8 @@ def flourish_slope_africa(df: pd.DataFrame, fertiliser_list: list, name:str) -> 
 
 
 def update_charts() -> None:
-    fao_products = pd.read_csv(f"{paths.raw_data}/fertilizer_products_fao.csv")
-    fao_nutrients = pd.read_csv(f"{paths.raw_data}/fertilizer_nutrients_fao.csv")
+    fao_products = pd.read_csv(f"{config.paths.raw_data}/fertilizer_products_fao.csv")
+    fao_nutrients = pd.read_csv(f"{config.paths.raw_data}/fertilizer_nutrients_fao.csv")
 
 
     #slope chart
@@ -157,6 +156,6 @@ def update_charts() -> None:
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(f"{paths.raw_data}/fertilizer_nutrients_fao.csv")
+    df = pd.read_csv(f"{config.paths.raw_data}/fertilizer_nutrients_fao.csv")
     df = clean_fao(df)
     df = _calculations(df)
