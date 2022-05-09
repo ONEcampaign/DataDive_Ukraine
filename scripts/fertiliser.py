@@ -1,10 +1,10 @@
 """
 manually download FAO data from https://www.fao.org/faostat/en/
 
-fertilizer by product -> save in raw_data folder as 'fertilizer_products_fao.csv'
-fertilizer by nutrient group -> save in raw_data folder as fertilizer_nutrient_fao.csv
+fertiliser by product -> save in raw_data folder as 'fertiliser_products_fao.csv'
+fertiliser by nutrient group -> save in raw_data folder as fertiliser_nutrient_fao.csv
 
-calculated values are averages of 2019 and 2018
+calculated values are averages of 2019, 2018,and 2017
 
 """
 import country_converter as coco
@@ -29,7 +29,7 @@ fertiliser_products = {
     "Potassium chloride (muriate of potash) (MOP)": "Potassium chloride",
 }
 
-fertilizer_nutrients = ['Nutrient nitrogen N (total)',
+fertiliser_nutrients = ['Nutrient nitrogen N (total)',
                         'Nutrient phosphate P2O5 (total)',
                         'Nutrient potash K2O (total)']
 def clean_fao(df:pd.DataFrame) -> pd.DataFrame:
@@ -60,7 +60,7 @@ def clean_fao(df:pd.DataFrame) -> pd.DataFrame:
 
 
 
-def _fertilizer_slope(df = pd.DataFrame) -> pd.DataFrame:
+def _fertiliser_slope(df = pd.DataFrame) -> pd.DataFrame:
     """ """
 
     df = df.pipe(clean_fao)[df.fertiliser.isin(fertiliser_products.keys())]
@@ -107,12 +107,12 @@ def _calculations(df: pd.DataFrame) -> pd.DataFrame:
 # =======================================================================
 #charts
 #========================================================================
-def fertilizer_price_chart() ->None:
-    """create csv for fertilizer price chart from WB pink sheet"""
+def fertiliser_price_chart() ->None:
+    """create csv for fertiliser price chart from WB pink sheet"""
 
     df = get_commodity_prices(list(fertiliser_products.values()))
     df = df[df.period>='2007-05-01'].melt('period').reset_index(drop=True)
-    df.columns = ['period', 'fertilizer', 'price']
+    df.columns = ['period', 'fertiliser', 'price']
 
     df.to_csv(f'{config.paths.output}/fertiliser_prices.csv', index=False)
 
@@ -120,7 +120,7 @@ def fertilizer_price_chart() ->None:
 def flourish_slope_africa(df: pd.DataFrame, fertiliser_list: list, name:str) -> None:
     """creates csv for slope chart"""
 
-    df = (df.pipe(_fertilizer_slope)
+    df = (df.pipe(_fertiliser_slope)
         .loc[(df.fertiliser.isin(fertiliser_list))
              & (df.continent == "Africa")
              &(df.net_import_qty>=0)
@@ -138,24 +138,41 @@ def flourish_slope_africa(df: pd.DataFrame, fertiliser_list: list, name:str) -> 
     df.to_csv(f'{config.paths.output}/{name}.csv')
 
 
+def dependence_maps(df:pd.DataFrame) -> None:
+    """Create csvs for dependence on nitrogen, phosphate and potash"""
+
+    for fertiliser in df.fertiliser.unique():
+        fertiliser_df = (df.loc[df.fertiliser == fertiliser, ['country', 'iso_code', 'continent', 'fertiliser', 'dependence']]
+                         .reset_index(drop=True)
+                         .pipe(utils.add_flourish_geometries, 'iso_code')
+                         )
+        fertiliser_df['country'] = coco.convert(fertiliser_df.iso_code, to='name_short')
+        fertiliser_df['country'].replace('not found', np.nan, inplace=True)
+
+
+        fertiliser_df.to_csv(f'{config.paths.output}/dependence_map_{fertiliser}.csv', index=False)
+
+
 
 def update_charts() -> None:
-    fao_products = pd.read_csv(f"{config.paths.raw_data}/fertilizer_products_fao.csv")
-    fao_nutrients = pd.read_csv(f"{config.paths.raw_data}/fertilizer_nutrients_fao.csv")
+    """ """
 
+    #fao_products = pd.read_csv(f"{config.paths.raw_data}/fertiliser_products_fao.csv")
+    fao_nutrients = (pd.read_csv(f"{config.paths.raw_data}/fertiliser_nutrients_fao.csv")
+                     .pipe(clean_fao)
+                     .pipe(_calculations))
+
+
+
+
+    fertiliser_price_chart() # create/update fertiliser price chart
+    dependence_maps(fao_nutrients) #create/update dependence maps for nitrogen phosphate and potash
 
     #slope chart
-    # flourish_slope_africa(fao_products,)
-
-
-
-
-
-
+    #flourish_slope_africa(fao_products)
 
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(f"{config.paths.raw_data}/fertilizer_nutrients_fao.csv")
-    df = clean_fao(df)
-    df = _calculations(df)
+
+    update_charts()

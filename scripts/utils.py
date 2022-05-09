@@ -16,10 +16,10 @@ def add_flourish_geometries(df: pd.DataFrame, key_column_name:str) -> pd.DataFra
     g = (g
          .rename(columns={g.columns[0]: "flourish_geom", g.columns[1]: key_column_name})
          .iloc[1:]
-         .drop_duplicates(subset="iso_code", keep="first")
+         .drop_duplicates(subset=key_column_name, keep="first")
          .reset_index(drop=True))
 
-    return pd.merge(g, df, on = key_column_name, how='outer')
+    return pd.merge(g, df, on = key_column_name, how='left')
 
 
 
