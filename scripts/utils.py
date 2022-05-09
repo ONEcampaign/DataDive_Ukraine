@@ -7,7 +7,7 @@ from scripts import config
 
 
 
-g20 = ['ARG','AUS','BRA','CAN','CHN','FRA','DEU','IND','IDN','ITA','JPN','KOR','MEX','RUS','SAU','TUR','GBR','USA']
+g20 = ['ARG','AUS','BRA','CAN','CHN','FRA','DEU','IND','IDN','ITA','JPN','KOR','MEX','SAU','TUR','GBR','USA'] #south africa? excluding russia
 
 
 

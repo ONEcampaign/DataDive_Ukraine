@@ -102,6 +102,48 @@ def _calculations(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+# =======================================================================
+#charts
+#========================================================================
+
+def shortage_analysis() -> pd.DataFrame:
+    """
+    creates a summary dataframe for fertiliser shortage
+    assuming Ukraine and Russia don't export, and g20 meet all their import demand
+    For this analysis, Russia is excluded from the g20
+    """
+
+    fao_nutrients = (pd.read_csv(f"{config.paths.raw_data}/fertiliser_nutrients_fao.csv")
+                     .pipe(clean_fao)
+                     .loc[:, ['country', 'iso_code', 'fertiliser', 'export_quantity', 'import_quantity', 'production']])
+
+    summary_df = pd.DataFrame()
+    summary_df['variable'] = ['total import', 'total export',
+                         'export from Ukraine and Russia', 'import from g20',
+                         'export excl. Ukraine and Russia', 'exports excl. Ukrain, Russia, g20',
+                         'import excl. g20', 'shortage']
+
+    for fertiliser in fao_nutrients.fertiliser.unique():
+        df = fao_nutrients[fao_nutrients.fertiliser == fertiliser].copy()
+
+        #totals
+        total_import = df.import_quantity.sum()
+        total_export = df.export_quantity.sum()
+
+        rus_ukr_export = df[df.iso_code.isin(['UKR', 'RUS'])].export_quantity.sum() #exports from russia and ukraine
+        g20_import = df[df.iso_code.isin(utils.g20)].import_quantity.sum() #imports from g20
+
+        export_excl_rus_ukr = total_export - rus_ukr_export #exports excluding russia and Ukraine
+        export_excl_rus_ukr_g20import = total_export - rus_ukr_export - g20_import #exports available after g20 demand is met
+        import_excl_g20 = total_import - g20_import #imports excl. g20
+
+        shortage = export_excl_rus_ukr_g20import - import_excl_g20
+
+        summary_df[fertiliser] = [total_import, total_export, rus_ukr_export, g20_import, export_excl_rus_ukr,
+                                  export_excl_rus_ukr_g20import, import_excl_g20, shortage]
+
+    return summary_df
+
 
 
 # =======================================================================
