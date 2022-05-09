@@ -6,6 +6,11 @@ import weo
 from scripts import config
 
 
+
+g20 = ['ARG','AUS','BRA','CAN','CHN','FRA','DEU','IND','IDN','ITA','JPN','KOR','MEX','RUS','SAU','TUR','GBR','USA']
+
+
+
 def add_flourish_geometries(df: pd.DataFrame, key_column_name:str) -> pd.DataFrame:
     """
     Adds a geometry column to a dataframe based on iso3 code
