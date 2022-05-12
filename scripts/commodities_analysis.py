@@ -50,26 +50,38 @@ def get_commodity_prices(commodities: list) -> pd.DataFrame:
     return df
 
 
-def get_indices(indices: Optional[list] =None) -> pd.DataFrame:
+def get_indices(indices: Optional[list] = None) -> pd.DataFrame:
     """gets index data from World Bank and returns a clean dataframe"""
 
     df = INDEX_DATA.copy()
 
-    df = (df.iloc[9:]
-          .reset_index(drop=True)
-          .replace("..", nan))
-    df.columns = ['period','Energy', 'Non-energy', 'Agriculture', 'Beverages', 'Food',
-                  'Oils & Meals', 'Grains', 'Other Food', 'Raw Materials','Timber',
-                  'Other Raw Mat.', 'Fertilizers', 'Metals & Minerals',
-                  'Base Metals (ex. iron ore)', 'Precious Metals']
+    df = df.iloc[9:].reset_index(drop=True).replace("..", nan)
+    df.columns = [
+        "period",
+        "Energy",
+        "Non-energy",
+        "Agriculture",
+        "Beverages",
+        "Food",
+        "Oils & Meals",
+        "Grains",
+        "Other Food",
+        "Raw Materials",
+        "Timber",
+        "Other Raw Mat.",
+        "Fertilizers",
+        "Metals & Minerals",
+        "Base Metals (ex. iron ore)",
+        "Precious Metals",
+    ]
 
-    #filter indices
+    # filter indices
     if indices is not None:
-        indices.insert(0, 'period') # add column name for period
+        indices.insert(0, "period")  # add column name for period
         df = df.loc[:, indices]
 
-    #change date format
-    df['period'] = pd.to_datetime(df.period, format="%YM%m")
+    # change date format
+    df["period"] = pd.to_datetime(df.period, format="%YM%m")
 
     return df
 
@@ -85,14 +97,16 @@ def create_commodity_chart_data(df: pd.DataFrame, start_date: str) -> None:
     print("Successfully created commodity chart")
 
 
-def create_index_chart(df: pd.DataFrame, start_date = str) -> None:
+def create_index_chart(df: pd.DataFrame, start_date=str) -> None:
     """Filters the data for selected dated and creates a csv formatted for flourish"""
 
-    (df.loc[df.period >= start_date]
-     .reset_index(drop=True)
-     .to_csv(f'{config.paths.output}/indices.csv', index=False))
+    (
+        df.loc[df.period >= start_date]
+        .reset_index(drop=True)
+        .to_csv(f"{config.paths.output}/indices.csv", index=False)
+    )
 
-    print('Successfully created index chart')
+    print("Successfully created index chart")
 
 
 def update_data() -> None:
@@ -101,10 +115,9 @@ def update_data() -> None:
     commodity_data = get_commodity_prices(commodities=COMMODITY_LIST)
     index_data = get_indices()
 
-
     # create chart csv
     create_commodity_chart_data(df=commodity_data, start_date="2018-01-01")
-    create_index_chart(df = index_data, start_date="2000-01-01")
+    create_index_chart(df=index_data, start_date="2000-01-01")
 
 
 if __name__ == "__main__":
