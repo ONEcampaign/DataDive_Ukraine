@@ -103,25 +103,29 @@ def _calculations(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 # =======================================================================
-#charts
+# analysis
 #========================================================================
 
-def shortage_analysis() -> pd.DataFrame:
+def shortage_analysis(export_cut_russia_belarus:float = 1) -> None:
     """
     creates a summary dataframe for fertiliser shortage
-    assuming Ukraine and Russia don't export, and g20 meet all their import demand
+    assuming Belarus and Russia don't export, and g20 meet all their import demand
     For this analysis, Russia is excluded from the g20
+
+    export_cut_russia_belarus: percent of exports from Russia and Belarus that are cut
     """
 
     fao_nutrients = (pd.read_csv(f"{config.paths.raw_data}/fertiliser_nutrients_fao.csv")
                      .pipe(clean_fao)
-                     .loc[:, ['country', 'iso_code', 'fertiliser', 'export_quantity', 'import_quantity', 'production']])
+                     .loc[:, ['country', 'iso_code', 'fertiliser', 'export_quantity', 'import_quantity', 'ag_use', 'production']])
 
     summary_df = pd.DataFrame()
-    summary_df['variable'] = ['total import', 'total export',
-                         'export from Ukraine and Russia', 'import from g20',
-                         'export excl. Ukraine and Russia', 'exports excl. Ukrain, Russia, g20',
-                         'import excl. g20', 'shortage']
+    summary_df['variable'] = ['total import', 'total export', 'exports from russia and Belarus', 'imports from g20',
+                              'exports available w/out russia/belarus and after g20 demand is met',
+                              'import demand by rest of world excluding g20', 'imports by g20 as % of total',
+                              'shortage', 'import demand gap (%)', 'g20 imports used in agriculture (%)',
+                              'g20 production as percent of total'
+                              ]
 
     for fertiliser in fao_nutrients.fertiliser.unique():
         df = fao_nutrients[fao_nutrients.fertiliser == fertiliser].copy()
@@ -129,26 +133,39 @@ def shortage_analysis() -> pd.DataFrame:
         #totals
         total_import = df.import_quantity.sum()
         total_export = df.export_quantity.sum()
+        total_production = df.production.sum()
 
-        rus_ukr_export = df[df.iso_code.isin(['UKR', 'RUS'])].export_quantity.sum() #exports from russia and ukraine
+        rus_bel_export = df[df.iso_code.isin(['BLR', 'RUS'])].export_quantity.sum() #exports from russia and Belarus
         g20_import = df[df.iso_code.isin(utils.g20)].import_quantity.sum() #imports from g20
 
-        export_excl_rus_ukr = total_export - rus_ukr_export #exports excluding russia and Ukraine
-        export_excl_rus_ukr_g20import = total_export - rus_ukr_export - g20_import #exports available after g20 demand is met
-        import_excl_g20 = total_import - g20_import #imports excl. g20
+        exports_available = total_export - (rus_bel_export*export_cut_russia_belarus) - g20_import #exports available w/out russia/belarus and after g20 demand is met
+        demand_rest_of_world = total_import - g20_import #import demand by rest of world excluding g20
 
-        shortage = export_excl_rus_ukr_g20import - import_excl_g20
+        g20_import_pct = (g20_import/total_import)*100 #imports by g20 as % of total
 
-        summary_df[fertiliser] = [total_import, total_export, rus_ukr_export, g20_import, export_excl_rus_ukr,
-                                  export_excl_rus_ukr_g20import, import_excl_g20, shortage]
+        shortage = demand_rest_of_world - exports_available
+        demand_gap_pct = (exports_available/demand_rest_of_world)*100
 
-    return summary_df
+        #aggricultural use
+        g20_ag_use = df[df.iso_code.isin(utils.g20)].ag_use.sum()
+        g20_ag_use_pct_import = (g20_import/g20_ag_use)*100
 
+        #production
+        g20_production = df[df.iso_code.isin(utils.g20)].production.sum()
+        g20_production_pct = (g20_production/total_production)*100
+
+
+        summary_df[fertiliser] = [total_import, total_export, rus_bel_export, g20_import,
+                                  exports_available, demand_rest_of_world,g20_import_pct, shortage,
+                                  demand_gap_pct, g20_ag_use_pct_import, g20_production_pct]
+
+    summary_df.to_csv(f'{config.paths.output}/shortage_analysis.csv', index=False)
 
 
 # =======================================================================
-#charts
+# charts
 #========================================================================
+
 def fertiliser_price_chart() ->None:
     """create csv for fertiliser price chart from WB pink sheet"""
 
@@ -217,4 +234,5 @@ def update_charts() -> None:
 
 if __name__ == "__main__":
 
+    shortage_analysis()
     update_charts()
