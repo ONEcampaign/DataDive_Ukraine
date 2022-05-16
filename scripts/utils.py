@@ -6,30 +6,43 @@ import weo
 from scripts import config
 
 
+g20 = [
+    "ARG",
+    "AUS",
+    "BRA",
+    "CAN",
+    "CHN",
+    "FRA",
+    "DEU",
+    "IND",
+    "IDN",
+    "ITA",
+    "JPN",
+    "KOR",
+    "MEX",
+    "SAU",
+    "TUR",
+    "GBR",
+    "USA",
+    "ZAF",
+]  # excluding russia
 
-g20 = ['ARG','AUS','BRA','CAN','CHN','FRA','DEU','IND','IDN','ITA','JPN','KOR','MEX','SAU','TUR','GBR','USA', 'ZAF']  #excluding russia
 
-
-
-def add_flourish_geometries(df: pd.DataFrame, key_column_name:str) -> pd.DataFrame:
+def add_flourish_geometries(df: pd.DataFrame, key_column_name: str) -> pd.DataFrame:
     """
     Adds a geometry column to a dataframe based on iso3 code
     key_column_name: name of column with iso3 codes to merge on
     """
 
-    g = pd.read_json(f'{config.paths.raw_data}/flourish_geometries_world.json')
-    g = (g
-         .rename(columns={g.columns[0]: "flourish_geom", g.columns[1]: key_column_name})
-         .iloc[1:]
-         .drop_duplicates(subset=key_column_name, keep="first")
-         .reset_index(drop=True))
+    g = pd.read_json(f"{config.paths.raw_data}/flourish_geometries_world.json")
+    g = (
+        g.rename(columns={g.columns[0]: "flourish_geom", g.columns[1]: key_column_name})
+        .iloc[1:]
+        .drop_duplicates(subset=key_column_name, keep="first")
+        .reset_index(drop=True)
+    )
 
-    return pd.merge(g, df, on = key_column_name, how='left')
-
-
-
-
-
+    return pd.merge(g, df, on=key_column_name, how="left")
 
 
 # =============================================================================
@@ -271,6 +284,3 @@ if __name__ == "__main__":
 
     # Health per capita
     update_wb_indicator(id_="SH.XPD.GHED.PC.CD")
-
-
-
