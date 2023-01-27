@@ -4,3 +4,4 @@ country_converter
 openpyxl
 wbgapi
 weo
+pyarrow
