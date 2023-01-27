@@ -2,6 +2,7 @@
 
 
 from scripts.commodities_analysis import update_data
+from scripts.trade_impact import update_all_trade
 
 
 def last_updated():
@@ -19,6 +20,8 @@ def last_updated():
 if __name__ == "__main__":
 
     update_data()
+
+    update_all_trade()
 
     # Save update time
     last_updated()

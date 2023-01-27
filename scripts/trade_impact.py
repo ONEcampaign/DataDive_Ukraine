@@ -1,6 +1,6 @@
 """This file contains functions to analyse the impact of rising commodity prices in the
 cost of net imports."""
-
+import numpy as np
 import pandas as pd
 from scripts.config import paths
 from scripts import utils
@@ -82,7 +82,7 @@ def _yearly_average(df, exclude: list = None):
 
     years = f"{df.year.min()}-{df.year.max()} (mean)"
 
-    return df.groupby(grouper).mean().reset_index().assign(year=years)
+    return df.groupby(grouper).mean(numeric_only=True).reset_index().assign(year=years)
 
 
 def _calc_mean_prices(
@@ -94,7 +94,7 @@ def _calc_mean_prices(
             (yearly_prices.year >= start_year) & (yearly_prices.year <= end_year)
         ]
         .groupby(["commodity"])
-        .mean()["value"]
+        .mean(numeric_only=True)["value"]
         .to_dict()
     )
 
@@ -121,7 +121,7 @@ def read_filtered_grouped_data() -> pd.DataFrame:
             ],
             as_index=False,
         )["quantity"]
-        .sum()
+        .sum(numeric_only=True)
     )
 
     df.loc[df.category == "crude oil", "quantity"] = (
@@ -139,7 +139,7 @@ def get_african_imports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
             ["year", "importer", "category", "pink_sheet_commodity"],
             as_index=False,
         )
-        .sum()
+        .sum(numeric_only=True)
     )
 
     if not yearly:
@@ -155,7 +155,7 @@ def get_african_exports(df: pd.DataFrame, yearly: bool = False) -> pd.DataFrame:
         .groupby(
             ["year", "exporter", "category", "pink_sheet_commodity"], as_index=False
         )
-        .sum()
+        .sum(numeric_only=True)
     )
     if not yearly:
         df = df.pipe(_yearly_average, exclude=["year", "quantity"])
@@ -202,9 +202,11 @@ def get_yearly_prices_data(commodities_list: list) -> pd.DataFrame:
     return (
         get_commodity_prices(commodities_list)
         .melt(id_vars=["period"], var_name="commodity")
+        .replace("…", np.nan, regex=True)
+        .astype({"value": float})
         .assign(year=lambda d: d.period.dt.year)
         .groupby(["year", "commodity"], as_index=False)
-        .mean()
+        .mean(numeric_only=True)
     )
 
 
@@ -428,7 +430,7 @@ def vegetable_oils_chart() -> None:
         pd.concat([palm_oil, sunflower_oil], ignore_index=True)
         .loc[lambda d: d.country != "Djibouti"]
         .groupby(["country"], as_index=False)
-        .sum()
+        .sum(numeric_only=True)
         .round(
             {
                 "Net imports (tonnes)": 0,
@@ -465,7 +467,7 @@ def grains_chart() -> None:
     grain = (
         pd.concat([wheat, maize], ignore_index=True)
         .groupby(["country"], as_index=False)
-        .sum()
+        .sum(numeric_only=True)
         .filter(["country", "Pre-war average", "At current prices"], axis=1)
         .loc[lambda d: d["Pre-war average"] > 0.480]
     )
@@ -565,10 +567,14 @@ def update_trade_impact_charts() -> None:
     vegetable_oils_chart()
 
 
-if __name__ == "__main__":
-    pass
+def update_all_trade() -> None:
 
     update_trade_impact_charts()
-    # analysis = analysis_pipeline()
-    # analysis.to_csv(paths.output + r"/data_for_analysis.csv", index=False)
-    # crude_evolution_chart()
+    analysis = analysis_pipeline()
+    analysis.to_csv(paths.output + r"/data_for_analysis.csv", index=False)
+    crude_evolution_chart()
+
+
+if __name__ == "__main__":
+    pass
+    update_all_trade()
