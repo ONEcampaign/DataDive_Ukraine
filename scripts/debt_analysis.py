@@ -148,6 +148,5 @@ def debt_pipeline(
 
 
 if __name__ == "__main__":
-
     df = debt_pipeline(indicator="stocks", start_year=2020, end_year=2020)
     df_service = debt_pipeline(indicator="service", start_year=2022, end_year=2022)

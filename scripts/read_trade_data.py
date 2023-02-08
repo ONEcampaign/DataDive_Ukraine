@@ -127,7 +127,6 @@ def ukr_rus_trade_africa_trade(start: int = 2018, end: int = 2020) -> pd.DataFra
 
 
 if __name__ == "__main__":
-
     # Create feather files for years specified
     [baci2feather(year) for year in range(2018, 2021)]
 

@@ -41,7 +41,6 @@ def wb_indicator_to_dict(df: pd.DataFrame, indicator_col: str):
 
 
 def update_wb_indicator(id_: str) -> None:
-
     # get population data
     get_wb_indicator(id_).to_csv(config.paths.raw_data + rf"/{id_}.csv", index=True)
 
@@ -69,7 +68,6 @@ def add_health_pc(df: pd.DataFrame, iso_codes_col: str = "iso_code") -> pd.DataF
 
 
 def get_debt_service(year: int = 2022) -> dict:
-
     import country_converter as coco
 
     df = pd.read_csv(config.paths.raw_data + r"/ids_service_raw.csv")

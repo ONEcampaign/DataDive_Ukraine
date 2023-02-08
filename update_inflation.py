@@ -18,7 +18,6 @@ def last_updated():
 
 
 if __name__ == "__main__":
-
     update_data()
 
     update_all_trade()

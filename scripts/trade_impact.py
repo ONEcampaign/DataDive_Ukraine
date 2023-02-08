@@ -198,7 +198,6 @@ def add_total_trade(
 
 
 def get_yearly_prices_data(commodities_list: list) -> pd.DataFrame:
-
     return (
         get_commodity_prices(commodities_list)
         .melt(id_vars=["period"], var_name="commodity")
@@ -211,7 +210,6 @@ def get_yearly_prices_data(commodities_list: list) -> pd.DataFrame:
 
 
 def get_latest_prices_data(commodities_list: list) -> dict:
-
     return (
         get_commodity_prices(commodities_list)
         .melt(id_vars=["period"], var_name="commodity")
@@ -379,7 +377,6 @@ def _flourish_commodity_pipeline(
     quantity_rounding: float = 1,
     value_rounding: float = 1,
 ) -> pd.DataFrame:
-
     df = (
         _commodity_evolution_df(commodity, exports=False)
         .assign(commodity=commodity)
@@ -492,7 +489,6 @@ def grains_chart() -> None:
 
 
 def analysis_pipeline():
-
     # Combine imports and exports data and calculate net imports quantity
     data = pd.read_feather(paths.output + r"/net_imports_africa.feather")
 
@@ -568,7 +564,6 @@ def update_trade_impact_charts() -> None:
 
 
 def update_all_trade() -> None:
-
     update_trade_impact_charts()
     analysis = analysis_pipeline()
     analysis.to_csv(paths.output + r"/data_for_analysis.csv", index=False)
