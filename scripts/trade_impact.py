@@ -259,7 +259,6 @@ def get_net_imports_africa(yearly: bool = False) -> None:
     df.to_feather(paths.output + r"/net_imports_africa.feather")
 
 
-
 def _commodity_evolution_df(commodity: str, exports: bool = False) -> pd.DataFrame:
     """Steps to get the change for a slope chart on Flourish"""
 
