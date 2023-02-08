@@ -239,7 +239,7 @@ def get_spending(
     )
 
 
-def get_net_imports_africa(yearly: bool = False) -> pd.DataFrame:
+def get_net_imports_africa(yearly: bool = False) -> None:
     """A clean version of the dataset,filtered for Africa"""
 
     # Read a clean version of the full dataset (quantities)
@@ -252,15 +252,18 @@ def get_net_imports_africa(yearly: bool = False) -> pd.DataFrame:
     afr_exp = get_african_exports(df, yearly=yearly)
 
     # Combine imports and exports data and calculate net imports quantity
-    return calc_net_imports(
+    df = calc_net_imports(
         imports_df=afr_imp, exports_df=afr_exp, column_to_net="quantity"
     )
+
+    df.to_feather(paths.output + r"/net_imports_africa.feather")
+
 
 
 def _commodity_evolution_df(commodity: str, exports: bool = False) -> pd.DataFrame:
     """Steps to get the change for a slope chart on Flourish"""
 
-    df = get_net_imports_africa()
+    df = pd.read_feather(paths.output + r"/net_imports_africa.feather")
 
     # filter for crude
     df = df.loc[
