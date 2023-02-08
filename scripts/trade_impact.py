@@ -494,7 +494,7 @@ def grains_chart() -> None:
 def analysis_pipeline():
 
     # Combine imports and exports data and calculate net imports quantity
-    data = get_net_imports_africa()
+    data = pd.read_feather(paths.output + r"/net_imports_africa.csv")
 
     # Add total trade
     data = data.pipe(add_total_trade)
