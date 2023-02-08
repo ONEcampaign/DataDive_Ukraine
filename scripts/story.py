@@ -138,7 +138,6 @@ def income_levels():
 
 
 def flourish_commodity_explorer() -> None:
-
     import country_converter as coco
 
     # Debt
