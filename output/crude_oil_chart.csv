@@ -1,7 +1,7 @@
-net_imports_quantity,Net exports (million barrels),Pre-war average,At current prices,Potential additional revenue,Potential revenue per capita (current prices),country
--485586794.57722384,486.0,27.7,41.1,13.5,1251.8,Angola
--102815343.09872924,103.0,5.9,8.7,2.9,1578.6,Congo Republic
--188896888.9125122,189.0,10.8,16.0,5.2,365.0,Algeria
--74700387.83968721,75.0,4.3,6.3,2.1,61.8,Egypt
--283776222.17864126,284.0,16.2,24.0,7.9,3499.0,Libya
--626111573.4799609,626.0,35.7,53.0,17.4,257.3,Nigeria
+country,Net exports (million barrels),net_imports_quantity,Pre-war average,At current prices,Potential additional revenue,Potential revenue per capita (current prices)
+Angola,486.0,-485586794.57722384,27.7,41.1,13.5,1251.8
+Congo Republic,103.0,-102815343.09872924,5.9,8.7,2.9,1578.6
+Algeria,189.0,-188896888.9125122,10.8,16.0,5.2,365.0
+Egypt,75.0,-74700387.83968721,4.3,6.3,2.1,61.8
+Libya,284.0,-283776222.17864126,16.2,24.0,7.9,3499.0
+Nigeria,626.0,-626111573.4799609,35.7,53.0,17.4,257.3
