@@ -30,14 +30,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,imports_quantity,47.602
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,imports_quantity,21451.527333333335
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,imports_quantity,69703.51
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,6.109333333333333
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,14477310.190615838
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,22305.732333333333
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,337.9395
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,104276.06566666666
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,94120.424
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,8650.483999999999
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,657213.446
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,6.109333333333333
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,14477310.190615838
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,22305.732333333333
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,337.9395
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,104276.06566666666
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,94120.424
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,8650.483999999999
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,imports_quantity,657213.446
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,imports_quantity,3.9103333333333334
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,imports_quantity,7.507331378299121
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,imports_quantity,18693.728
@@ -320,14 +320,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,exports_quantity,-0.001
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,exports_quantity,-134.69133333333335
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,exports_quantity,-139.05200000000002
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-9000.297
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-11474066.542033235
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-11359.466333333336
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-16199.595333333333
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-197438.58666666664
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-1840.6263333333334
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-26.81266666666667
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-1898.1915
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-9000.297
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-11474066.542033235
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-11359.466333333336
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-16199.595333333333
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-197438.58666666664
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-1840.6263333333334
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-26.81266666666667
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,exports_quantity,-1898.1915
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,exports_quantity,-0.5643333333333334
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,exports_quantity,-32223999.579667646
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,exports_quantity,-23.101666666666663
@@ -610,14 +610,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_quantity,47.601
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_quantity,21316.836000000003
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_quantity,69564.458
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-8994.187666666667
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,3003243.648582604
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,10946.265999999998
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-15861.655833333332
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-93162.52099999998
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,92279.79766666667
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,8623.671333333332
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,655315.2545
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-8994.187666666667
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,3003243.648582604
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,10946.265999999998
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-15861.655833333332
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,-93162.52099999998
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,92279.79766666667
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,8623.671333333332
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_quantity,655315.2545
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_quantity,3.346
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_quantity,-32223992.072336268
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_quantity,18670.626333333334
@@ -900,14 +900,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,total_trade,47.602999999999994
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,total_trade,21586.218666666668
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,total_trade,69842.56199999999
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,9006.406333333334
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,25951376.732649073
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,33665.19866666667
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,16537.53483333333
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,301714.6523333333
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,95961.05033333333
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,8677.296666666665
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,659111.6375
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,9006.406333333334
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,25951376.732649073
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,33665.19866666667
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,16537.53483333333
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,301714.6523333333
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,95961.05033333333
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,8677.296666666665
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,total_trade,659111.6375
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,total_trade,4.474666666666667
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,total_trade,32224007.086999025
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,total_trade,18716.829666666665
@@ -1190,14 +1190,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis,17072472.16337938
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis,14944117.742618648
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,5585.609811804183
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,825268343.4825841
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,3717255.017208426
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,272147.0744890813
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,69231961.61874503
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,6884598.238386135
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,140903594.6547906
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,5585.609811804183
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,825268343.4825841
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,3717255.017208426
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,272147.0744890813
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,69231961.61874503
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,6884598.238386135
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis,140903594.6547906
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis,3575.1194185003746
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis,427.94986423373666
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis,3115313.7301161746
@@ -1480,14 +1480,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest,26224492.165000003
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest,17577134.116699997
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,12055.196292526038
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,1046868777.193622
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,4519087.167803763
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,709283.0406311344
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,124060580.99223444
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,10575216.689999998
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,165729514.67782
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,12055.196292526038
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,1046868777.193622
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,4519087.167803763
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,709283.0406311344
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,124060580.99223444
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,10575216.689999998
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest,165729514.67782
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest,7716.035994523296
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest,542.8626392961878
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest,3787303.8670409597
@@ -1770,14 +1770,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis,-107195.81889204656
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis,-29812.12080061117
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-8228745.182074163
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-654070663.920057
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-1893057.4701325374
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-13045744.808978057
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-131085312.49981211
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-21339.203413331325
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-406963.6848135468
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-8228745.182074163
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-654070663.920057
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-1893057.4701325374
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-13045744.808978057
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-131085312.49981211
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-21339.203413331325
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis,-406963.6848135468
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis,-515.9557732095418
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis,-1836905226.409642
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis,-3849.8976424196294
@@ -2060,14 +2060,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest,-164660.15500000003
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest,-35064.742840000006
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-17759768.71879636
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-829701225.7209653
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-2301400.2756301435
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-34000459.35743114
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-234899021.319542
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-32778.485
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-478666.95055499993
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-17759768.71879636
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-829701225.7209653
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-2301400.2756301435
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-34000459.35743114
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-234899021.319542
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-32778.485
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest,-478666.95055499993
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest,-1113.566527894292
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest,-2330149633.6053476
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest,-4680.341529616666
@@ -2350,14 +2350,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis,16965276.344487336
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis,14914305.621818038
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-8223159.572262359
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,171197679.56252703
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,1824197.5470758884
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-12773597.734488973
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-61853350.88106708
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,6863259.034972803
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,140496630.96997708
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-8223159.572262359
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,171197679.56252703
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,1824197.5470758884
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-12773597.734488973
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,-61853350.88106708
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,6863259.034972803
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis,140496630.96997708
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis,3059.1636452908333
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis,-1836904798.4597778
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis,3111463.832473755
@@ -2640,14 +2640,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest,26059832.010000005
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest,17542069.373859998
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-17747713.522503834
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,217167551.4726567
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,2217686.8921736195
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-33291176.316800006
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-110838440.32730757
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,10542438.204999998
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,165250847.727265
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-17747713.522503834
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,217167551.4726567
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,2217686.8921736195
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-33291176.316800006
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,-110838440.32730757
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,10542438.204999998
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest,165250847.727265
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest,6602.469466629004
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest,-2330149090.742708
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest,3782623.525511343
@@ -2930,14 +2930,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_pre_crisis,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_pre_crisis,17179667.982271425
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_pre_crisis,14973929.863419259
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,8234330.791885967
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,1479339007.402641
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,5610312.487340963
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,13317891.883467136
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,200317274.1185571
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,6905937.441799466
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,141310558.33960414
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,8234330.791885967
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,1479339007.402641
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,5610312.487340963
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,13317891.883467136
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,200317274.1185571
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,6905937.441799466
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_pre_crisis,141310558.33960414
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_pre_crisis,4091.0751917099165
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_pre_crisis,1836905654.3595064
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_pre_crisis,3119163.6277585938
@@ -3220,14 +3220,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_latest,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_latest,26389152.32
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_total_trade_latest,17612198.859539997
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,17771823.91508889
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,1876570002.9145873
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,6820487.443433907
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,34709742.398062274
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,358959602.3117764
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,10607995.174999999
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,166208181.628375
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,17771823.91508889
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,1876570002.9145873
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,6820487.443433907
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,34709742.398062274
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,358959602.3117764
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,10607995.174999999
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_total_trade_latest,166208181.628375
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_latest,8829.602522417588
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_latest,2330150176.4679866
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_total_trade_latest,3791984.2085705763
@@ -3510,14 +3510,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value,9094555.66551267
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value,2627763.75204196
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-9524553.950241476
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,45969871.91012967
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,393489.3450977311
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-20517578.582311034
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-48985089.446240485
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,3679179.1700271955
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,24754216.75728792
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-9524553.950241476
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,45969871.91012967
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,393489.3450977311
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-20517578.582311034
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,-48985089.446240485
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,3679179.1700271955
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value,24754216.75728792
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value,3543.305821338171
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value,-493244292.2829304
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value,671159.6930375881
@@ -3800,14 +3800,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_pre_crisis_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_pre_crisis_ppp,
@@ -4090,14 +4090,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_imports_latest_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_imports_latest_ppp,
@@ -4380,14 +4380,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_pre_crisis_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_pre_crisis_ppp,
@@ -4670,14 +4670,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_exports_latest_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_exports_latest_ppp,
@@ -4960,14 +4960,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_pre_crisis_ppp,
@@ -5250,14 +5250,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,value_net_imports_latest_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,value_net_imports_latest_ppp,
@@ -5540,14 +5540,14 @@ BWA,Botswana,palm oil,Palm oil,2018-2020 (mean),2351625,17804000000.0,Upper midd
 BWA,Botswana,potassium chloride,Potassium chloride,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value_ppp,
 BWA,Botswana,sunflower oil,Sunflower oil,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value_ppp,
 BWA,Botswana,wheat,Wheat,2018-2020 (mean),2351625,17804000000.0,Upper middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
-CIV,Cote d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,coconut oil,Coconut oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,crude oil,"Crude oil, average",2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,maize,Maize,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,palm kernel oil,Palm kernel oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,palm oil,Palm oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,potassium chloride,Potassium chloride,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,sunflower oil,Sunflower oil,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
+CIV,Côte d'Ivoire,wheat,Wheat,2018-2020 (mean),26378275,69753000000.0,Lower middle income,net_imports_impact_value_ppp,
 CMR,Cameroon,coconut oil,Coconut oil,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value_ppp,
 CMR,Cameroon,crude oil,"Crude oil, average",2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value_ppp,
 CMR,Cameroon,maize,Maize,2018-2020 (mean),26545864,45049000000.0,Lower middle income,net_imports_impact_value_ppp,
